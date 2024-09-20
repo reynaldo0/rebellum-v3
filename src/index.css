@@ -1,0 +1,285 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Radio+Canada&display=swap");
+/* @import url("./sweeper.css"); */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply font-poppins;
+}
+
+::selection {
+  @apply bg-yellow text-white;
+}
+
+.navbar-fixed {
+  @apply z-50 border-b-2 border-slate-300 bg-white bg-opacity-70 backdrop-blur-lg;
+}
+
+.active {
+  @apply relative font-medium text-primary-100;
+}
+
+/* .active::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2.5px;
+  background-color: currentColor; 
+  transform: scaleX(0);
+  transition: transform 0.3s ease; Efek transisi
+} */
+button.learn-more .circle {
+  @apply bg-primary-200;
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: relative;
+  display: block;
+  margin: 0;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1.625rem;
+}
+
+button.learn-more .circle .icon {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #fff;
+}
+
+button.learn-more .circle .icon.arrow {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  left: 0.625rem;
+  width: 1.125rem;
+  height: 0.125rem;
+  background: none;
+}
+
+button.learn-more .circle .icon.arrow::before {
+  position: absolute;
+  content: "";
+  top: -0.29rem;
+  right: 0.0625rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-top: 0.125rem solid #fff;
+  border-right: 0.125rem solid #fff;
+  transform: rotate(45deg);
+}
+
+
+.pesawat-parallax {
+  position: absolute;
+  top: 1%;
+  right: 0;
+  width: auto;
+  transform: translateX(0);
+  transition: transform 0.3s ease-out; 
+}
+
+@media (max-width: 768px) {
+  .pesawat-parallax {
+    transition: transform 0.3s ease-out; 
+  }
+}
+
+.pesawat-parallax.animate {
+  transform: translateX(-50px);
+}
+
+.transition-height {
+  transition: height 0.3s ease;
+}
+
+
+button.learn-more .button-text {
+  @apply text-primary-200;
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.75rem 0;
+  margin: 0 0 0 1.85rem;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+button:hover .circle {
+  width: 100%;
+}
+
+button:hover .circle .icon.arrow {
+  background: #fff;
+  transform: translate(1rem, 0);
+}
+
+button:hover .button-text {
+  color: #fff;
+}
+
+/* css konsultasi */
+/* #konsultasi {
+  @apply flex flex-col items-center justify-center;
+} */
+/* 
+.backg {
+  @apply relative mr-[200px] flex w-[90%] bg-[url("../assets/konsultasi/Rectangle87.png")] bg-cover bg-center bg-no-repeat p-8;
+} */
+
+.text_konsultasi {
+  @apply ml-5 max-w-[65%] text-white;
+}
+
+.input_konsultasi {
+  @apply mb-1 mt-5 w-full rounded-[200px] p-[10] text-base text-black;
+}
+
+.input-group {
+  @apply mt-5;
+}
+
+.btn_konsultasi {
+  @apply cursor-pointer rounded-[15px] bg-yellow px-7 py-2.5 text-lg transition duration-300 ease-linear hover:bg-[#ffac2f];
+}
+
+.vektor_konseling {
+  @apply absolute -right-[160px] top-1/2 z-10 h-auto max-w-[50%] -translate-y-[53%];
+}
+
+@media screen and (max-width: 768px) {
+  .backg {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 200px;
+    margin-top: 7vh;
+    z-index: 1;
+  }
+
+  .vektor_konseling {
+    position: sticky;
+    top: auto;
+    margin-bottom: 100px;
+    right: auto;
+    max-width: 100%;
+  }
+
+  .text_konsultasi {
+    max-width: 100%;
+    margin-left: 0;
+    font-size: 11px;
+    margin-top: -30vh;
+    text-align: start;
+  }
+
+  .text_konsultasi h1 {
+    font-size: 20px;
+    padding: 0px;
+    margin-top: -20px;
+    line-height: 25px;
+  }
+
+  .text_konsultasi p {
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: 20px;
+  }
+
+  .input_konsultasi {
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+  }
+}
+/* css close konsultasi */
+
+.line {
+  @apply absolute -bottom-1 left-0 -z-[99] h-2 w-0 bg-yellow;
+}
+
+.flip-card {
+  @apply h-80 w-56 scale-75 bg-transparent md:scale-100;
+  perspective: 1000px;
+}
+
+.swiper-slide-active .flip-card-front {
+  @apply border border-primary-200;
+}
+
+.title {
+  @apply text-center text-2xl font-black;
+}
+
+.flip-card-inner {
+  @apply relative h-full w-full text-center transition-transform duration-700;
+  transform-style: preserve-3d;
+}
+/* 
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+} */
+
+.flip-card-front,
+.flip-card-back {
+  @apply absolute h-full w-full rounded-2xl border shadow-lg;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  @apply bg-white text-black shadow-xl;
+}
+
+.flip-card-back {
+  @apply bg-yellow text-white;
+  transform: rotateY(180deg);
+}
+
+.spinner {
+  --size: 30px;
+  --first: #6171c8;
+  --second: #f89b11;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  animation: spin 2s linear infinite;
+}
+
+.spinner::before,
+.spinner::after {
+  content: "";
+  width: var(--size);
+  height: var(--size);
+  background: var(--first);
+  border-radius: 100%;
+  position: absolute;
+  top: 10%;
+  transform: translateY(-50%);
+  animation: bounce 1s ease-in-out alternate infinite;
+}
+
+.spinner::after {
+  background: var(--second);
+
+  animation: bounce 1s 0.5s ease-in-out alternate infinite;
+}
+
+@keyframes bounce {
+  50% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
