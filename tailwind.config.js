@@ -23,6 +23,9 @@ export default {
         '2xl': '1320px'
       },
       colors: {
+        primary: "#0D9B86",
+        secondary: "#FF682C",
+        tertiary: "#808080",
         primary: {
           100: "#5562AD",
           200: "#6171C8",

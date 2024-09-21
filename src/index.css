@@ -283,3 +283,31 @@ button:hover .button-text {
     transform: rotate(360deg);
   }
 }
+
+/* Transition and animation utilities */
+.page-container {
+  @apply transition-transform ease-in-out duration-500;
+}
+
+.slide-out-left {
+  transform: translateX(-100%);
+}
+
+.slide-in-right {
+  transform: translateX(100%);
+}
+
+/* .fade-in {
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+
+.fade-out {
+  opacity: 1;
+  animation: fadeOut 0.5s forwards;
+} */
+
+.blur {
+  filter: blur(8px);
+  @apply transition ease-in-out duration-500;
+}

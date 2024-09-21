@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useStateContext } from '../context/stateContext';
 import Hero from '../pages/Hero';
 import Option3d from '../pages/Options';
+import Landing from '../pages/Landing';
 
 const HomeLayout = () => {
   const { open, setOpen } = useStateContext();
@@ -26,7 +27,7 @@ const HomeLayout = () => {
         </div>
       ) : (
         <div className={transition}>
-          <Hero />
+          <Landing />
         </div>
       )}
 
