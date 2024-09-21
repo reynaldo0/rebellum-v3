@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useStateContext } from '../context/stateContext';
-import Hero from '../pages/Hero';
 import Option3d from '../pages/Options';
 import Landing from '../pages/Landing';
 

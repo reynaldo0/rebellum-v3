@@ -88,7 +88,7 @@ const Options = ({ onBack }: { onBack: () => void }) => {
 
       <div className="relative z-10 max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2 bg-transparent">
         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <img src="/logo.png" className="h-auto w-40" alt="Logo" />
+          <img src="/icon/logo-nav.png" className="h-auto w-40" alt="Logo" />
         </a>
       </div>
 

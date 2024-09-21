@@ -5,8 +5,8 @@ const Dialog = () => {
     {
       text: "Halo Selamat datang di website Healtyself",
       audio: "/audio/datang.mp3",
-      mascot: "/maskot/datang.gif",
-      fallbackMascot: "/maskot/diam.png",
+      mascot: "/team/rama.jpg",
+      fallbackMascot: "/team/rama.jpg",
       duration: 10000,
     },
     {
@@ -84,12 +84,12 @@ const Dialog = () => {
               <div className="flex justify-end md:justify-start gap-4">
                 <button
                   onClick={handleSkip}
-                  className="text-white bg-secondary/50 hover:bg-secondary/90 font-medium rounded-lg text-sm px-8 py-2 text-center">
+                  className="text-white bg-yellow/50 hover:bg-yellow/90 font-medium rounded-lg text-sm px-8 py-2 text-center">
                   Lewati
                 </button>
                 <button
                   onClick={handleNext}
-                  className="text-white bg-secondary hover:bg-secondary/90 font-medium rounded-lg text-sm px-8 py-2 text-center">
+                  className="text-white bg-yellow hover:bg-yellow/90 font-medium rounded-lg text-sm px-8 py-2 text-center">
                   Selanjutnya
                 </button>
               </div>
