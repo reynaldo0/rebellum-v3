@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import ModelCanvas from "../components/ModelCanvas";
-import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import Dialog from "../components/Dialog";
 import Modal from "../components/Modal"; // Ensure you import your Modal component
@@ -11,28 +10,27 @@ const Options = ({ onBack }: { onBack: () => void }) => {
   const [showDialog, setShowDialog] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState({ title: '', information: '', description: '', image: '' });
-  const [cloudOffset, setCloudOffset] = useState(0);
+  // const [cloudOffset, setCloudOffset] = useState(0);
   const isMobile = window.innerWidth <= 768;
   const swiperRef = useRef<SwiperRef>(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     setTimeout(() => {
       setShowDialog(true);
     }, 1000);
 
-    const handleMouseMove = (e: MouseEvent) => {
-      const screenWidth = window.innerWidth;
-      const mouseX = e.clientX;
-      const offset = (mouseX / screenWidth - 0.5) * 100;
-      setCloudOffset(offset);
-    };
+    // const handleMouseMove = (e: MouseEvent) => {
+    //   const screenWidth = window.innerWidth;
+    //   const mouseX = e.clientX;
+    //   const offset = (mouseX / screenWidth - 0.5) * 100;
+    //   setCloudOffset(offset);
+    // };
 
-    window.addEventListener("mousemove", handleMouseMove);
+    // window.addEventListener("mousemove", handleMouseMove);
 
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
+    // return () => {
+    //   window.removeEventListener("mousemove", handleMouseMove);
+    // };
   }, []);
 
   const options = [

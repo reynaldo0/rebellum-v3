@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
 import "flowbite";
 import "./index.css";
 import Aos from "aos";

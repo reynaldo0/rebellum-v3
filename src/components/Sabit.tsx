@@ -39,11 +39,13 @@ const Scene = () => {
 
         <group ref={rotateGroupRef}>
           <Celurit
+            isHovered
             scale={25}
             position={[-20, 0, 0]}
             rotation={[0, 0, Math.PI / 6]}
           />
           <Celurit
+            isHovered
             scale={25}
             position={[20, 0, 0]}
             rotation={[0, Math.PI, Math.PI / 6]}
