@@ -3,14 +3,15 @@ import ModelCanvas from "../components/ModelCanvas";
 import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import Dialog from "../components/Dialog";
-import Modal from "../components/Modal"; // Ensure you import your Modal component
+import Modal from "../components/Modal"; 
 import "swiper/css";
 import Celurit from "../components/models/Celurit";
+import { options } from "../docs/optionsData"; // Import options
 
 const Options = ({ onBack }: { onBack: () => void }) => {
   const [showDialog, setShowDialog] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [modalContent, setModalContent] = useState({ title: '', information: '', description: '', image: '' });
+  const [selectedOptionIndex, setSelectedOptionIndex] = useState<number | null>(null); // Track selected option index
   const [cloudOffset, setCloudOffset] = useState(0);
   const isMobile = window.innerWidth <= 768;
   const swiperRef = useRef<SwiperRef>(null);
@@ -35,61 +36,14 @@ const Options = ({ onBack }: { onBack: () => void }) => {
     };
   }, []);
 
-  const options = [
-    {
-      title: "Tawuran",
-      description: "1-12 Bulan",
-      information: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting",
-      image: "/team/salman.jpg",
-      link: "/baby",
-      backgroundColor: "#0D46A4",
-      height: "225px",
-    },
-    {
-      title: "Anak - Anak",
-      description: "3-12 Tahun",
-      information: "loremipsumkan saja",
-      image: "/path/to/anak-anak-image.jpg",
-      link: "/child",
-      backgroundColor: "#E33B3B",
-      height: "300px",
-    },
-    {
-      title: "Remaja",
-      description: "13-17 Tahun",
-      information: "loremipsumkan saja",
-      image: "/path/to/remaja-image.jpg",
-      link: "/teen",
-      backgroundColor: "#0E9D75",
-      height: "320px",
-    },
-    {
-      title: "Dewasa",
-      description: "18-59 Tahun",
-      information: "loremipsumkan saja",
-      image: "/path/to/dewasa-image.jpg",
-      link: "/adult",
-      backgroundColor: "#F36932",
-      height: "270px",
-    },
-    {
-      title: "Lansia",
-      description: "60 tahun keatas",
-      information: "loremipsumkan saja",
-      image: "/path/to/lansia-image.jpg",
-      link: "/elderly",
-      backgroundColor: "#16AE79",
-      height: "220px",
-    },
-  ];
-
-  const handleModelCanvasClick = (option: { title: string; information: string; description: string; image: string; link: string }) => {
-    setModalContent(option);
+  const handleModelCanvasClick = (index: number) => {
+    setSelectedOptionIndex(index); // Set the selected option index
     setShowModal(true);
   };
 
   const closeModal = () => {
     setShowModal(false);
+    setSelectedOptionIndex(null); // Reset index when closing
   };
 
   const handlePrev = () => {
@@ -103,12 +57,9 @@ const Options = ({ onBack }: { onBack: () => void }) => {
   return (
     <section className="relative min-h-screen bg-cover bg-center bg-no-repeat bg-[url(/background/golongan.png)] overflow-hidden page-container">
       {showDialog && <Dialog />}
-      {showModal && (
+      {showModal && selectedOptionIndex !== null && (
         <Modal
-          title={modalContent.title}
-          information={modalContent.information}
-          description={modalContent.description}
-          image={modalContent.image}
+          optionIndex={selectedOptionIndex} // Pass selected index to Modal
           onClose={closeModal}
         />
       )}
@@ -139,7 +90,7 @@ const Options = ({ onBack }: { onBack: () => void }) => {
           {options.map((option, index) => (
             <SwiperSlide key={index} className="flex justify-center items-end">
               <ModelCanvas
-                onClick={() => handleModelCanvasClick(option)}
+                onClick={() => handleModelCanvasClick(index)} // Pass the index
                 model={<Celurit isHovered />}
                 title={option.title}
                 description={option.description}
@@ -193,6 +144,7 @@ const Options = ({ onBack }: { onBack: () => void }) => {
                 />
               </svg>
             </button>
+
             <button
               onClick={handleNext}
               className="transform bg-transparent border-secondary border-2 text-white p-2 rounded-full shadow-lg button-animate-next">
@@ -203,7 +155,7 @@ const Options = ({ onBack }: { onBack: () => void }) => {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path
-                  d="M4.49994 11.0001H16.0859L11.5859 6.50006L12.9999 5.08606L19.9139 12.0001L12.9999 18.9141L11.5859 17.5001L16.0859 13.0001H4.49994V11.0001Z"
+                  d="M4.50001 12.9999H16.086L11.586 17.4999L13.0001 18.9139L19.9141 11.9999L13.0001 5.08594L11.586 6.49994L16.086 10.9999H4.50001V12.9999Z"
                   fill="#FF682C"
                 />
               </svg>
