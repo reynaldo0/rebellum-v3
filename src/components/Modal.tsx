@@ -20,7 +20,7 @@ const Modal: React.FC<ModalProps> = ({ title, information, description, image, o
 
   return (
     <div className="absolute inset-0 bg-black/60 z-20 flex items-end justify-end">
-      <div className="bg-white w-full max-w-6xl h-[450px] rounded-lg overflow-hidden relative">
+      <div className="bg-white w-full max-w-6xl h-[450px] rounded-t-xl overflow-hidden relative">
         <button onClick={onClose} className="absolute top-2 right-2 text-gray-600 hover:text-gray-800">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M6 18L18 6M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
