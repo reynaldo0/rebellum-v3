@@ -3,23 +3,18 @@ import ModelCanvas from "../components/ModelCanvas";
 import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import Dialog from "../components/Dialog";
+import Modal from "../components/Modal"; // Ensure you import your Modal component
 import "swiper/css";
 import Celurit from "../components/models/Celurit";
 
 const Options = ({ onBack }: { onBack: () => void }) => {
   const [showDialog, setShowDialog] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [modalContent, setModalContent] = useState({ title: '', description: '', image: '' });
   const [cloudOffset, setCloudOffset] = useState(0);
   const isMobile = window.innerWidth <= 768;
   const swiperRef = useRef<SwiperRef>(null);
   const navigate = useNavigate();
-
-  const handlePrev = () => {
-    if (swiperRef.current) swiperRef.current.swiper.slidePrev();
-  };
-
-  const handleNext = () => {
-    if (swiperRef.current) swiperRef.current.swiper.slideNext();
-  };
 
   useEffect(() => {
     setTimeout(() => {
@@ -30,7 +25,6 @@ const Options = ({ onBack }: { onBack: () => void }) => {
       const screenWidth = window.innerWidth;
       const mouseX = e.clientX;
       const offset = (mouseX / screenWidth - 0.5) * 100;
-      console.log("Mouse X:", mouseX, "Offset:", offset);
       setCloudOffset(offset);
     };
 
@@ -41,50 +35,77 @@ const Options = ({ onBack }: { onBack: () => void }) => {
     };
   }, []);
 
-  const cloud1Style = {
-    transform: `translateX(${cloudOffset * 0.8}px)`,
-    position: "absolute",
-    top: "0",
-    right: "-28px",
-    zIndex: 1,
-    transition: "transform 0.5s ease-out",
+  const options = [
+    {
+      title: "Bayi",
+      description: "1-12 Bulan",
+      image: "/path/to/bayi-image.jpg",
+      link: "/baby",
+      backgroundColor: "#0D46A4",
+      height: "225px",
+    },
+    {
+      title: "Anak - Anak",
+      description: "3-12 Tahun",
+      image: "/path/to/anak-anak-image.jpg",
+      link: "/child",
+      backgroundColor: "#E33B3B",
+      height: "300px",
+    },
+    {
+      title: "Remaja",
+      description: "13-17 Tahun",
+      image: "/path/to/remaja-image.jpg",
+      link: "/teen",
+      backgroundColor: "#0E9D75",
+      height: "320px",
+    },
+    {
+      title: "Dewasa",
+      description: "18-59 Tahun",
+      image: "/path/to/dewasa-image.jpg",
+      link: "/adult",
+      backgroundColor: "#F36932",
+      height: "270px",
+    },
+    {
+      title: "Lansia",
+      description: "60 tahun keatas",
+      image: "/path/to/lansia-image.jpg",
+      link: "/elderly",
+      backgroundColor: "#16AE79",
+      height: "220px",
+    },
+  ];
+
+  const handleModelCanvasClick = (option: { title: string; description: string; image: string; link: string }) => {
+    setModalContent(option);
+    setShowModal(true);
   };
 
-  const cloud2Style = {
-    transform: `translateX(${cloudOffset * 1.2}px)`,
-    position: "absolute",
-    top: "0",
-    left: "-28px",
-    zIndex: 1,
-    transition: "transform 1s ease-out",
+  const closeModal = () => {
+    setShowModal(false);
   };
 
-  const handleModelCanvasClick = (href: string) => {
-    const container = document.querySelector(".page-container");
-    container && container.classList.add("fade-out");
-    setTimeout(() => {
-      navigate(href);
-    }, 500);
+  const handlePrev = () => {
+    if (swiperRef.current) swiperRef.current.swiper.slidePrev();
+  };
+
+  const handleNext = () => {
+    if (swiperRef.current) swiperRef.current.swiper.slideNext();
   };
 
   return (
     <section className="relative min-h-screen bg-cover bg-center bg-no-repeat bg-[url(/background/golongan.png)] overflow-hidden page-container">
       {showDialog && <Dialog />}
-
-      {/* Awan-awan */}
-      {/* <img
-        src="/background/awan-opsi-1.webp"
-        alt="awan biruu"
-        className="cloud cloud-slide-left"
-        style={cloud1Style}
-      />
-
-      <img
-        src="/background/awan-opsi-2.webp"
-        alt="awan biruu lagi"
-        className="cloud cloud-slide-right"
-        style={cloud2Style}
-      /> */}
+      {showModal && (
+        <Modal
+          title={modalContent.title}
+          description={modalContent.description}
+          image={modalContent.image}
+          onClose={closeModal}
+        />
+      )}
 
       <div className="relative z-10 max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2 bg-transparent">
         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
@@ -104,80 +125,26 @@ const Options = ({ onBack }: { onBack: () => void }) => {
           ref={swiperRef}
           effect="coverflow"
           spaceBetween={16}
-          coverflowEffect={{ 
-            slideShadows: false,
-            depth: 0,
-            rotate: 0
-           }}
+          coverflowEffect={{ slideShadows: false, depth: 0, rotate: 0 }}
           slidesPerView={isMobile ? 1 : 3.3}
           centeredSlides={false}
-          className="w-full flex items-end pt-10 pb-4 px-2 h-[65vh]">
-          {/* Swiper slides */}
-          <SwiperSlide className="flex justify-center items-end">
-            <ModelCanvas
-              onClick={() => handleModelCanvasClick("/baby")}
-              model={<Celurit isHovered />}
-              title="Bayi"
-              description="1-12 Bulan"
-              backgroundColor={"#0D46A4"}
-              width="289px"
-              height="225px"
-              titleColor="#A3ECFF"
-              descriptionColor="#FFF"
-            />
-          </SwiperSlide>
-          <SwiperSlide className="flex justify-center items-end">
-            <ModelCanvas
-              onClick={() => handleModelCanvasClick("/child")}
-              model={<Celurit isHovered />}
-              title="Anak - Anak"
-              description="3-12 Tahun"
-              backgroundColor={"#E33B3B"}
-              width="289px"
-              height="300px"
-              titleColor="#A3ECFF"
-              descriptionColor="#FFF"
-            />
-          </SwiperSlide>
-          <SwiperSlide className="flex justify-center items-end">
-            <ModelCanvas
-              onClick={() => handleModelCanvasClick("/teen")}
-              model={<Celurit isHovered />}
-              title="Remaja"
-              description="13-17 Tahun"
-              backgroundColor={"#0E9D75"}
-              width="289px"
-              height="320px"
-              titleColor="#A3ECFF"
-              descriptionColor="#FFF"
-            />
-          </SwiperSlide>
-          <SwiperSlide className="flex justify-center items-end">
-            <ModelCanvas
-              model={<Celurit isHovered />}
-              title="Dewasa"
-              description="18-59 Tahun"
-              backgroundColor={"#F36932"}
-              width="289px"
-              height="270px"
-              titleColor="#6FDB9F"
-              descriptionColor="#FFF"
-              onClick={() => handleModelCanvasClick("/adult")}
-            />
-          </SwiperSlide>
-          <SwiperSlide className="flex justify-center items-end">
-            <ModelCanvas
-              model={<Celurit isHovered />}
-              title="Lansia"
-              description="60 tahun keatas"
-              backgroundColor={"#16AE79"}
-              width="289px"
-              height="220px"
-              titleColor="#FFC0CC"
-              descriptionColor="#FFF"
-              onClick={() => handleModelCanvasClick("/elderly")}
-            />
-          </SwiperSlide>
+          className="w-full flex items-end pt-10 pb-4 px-2 h-[65vh]"
+        >
+          {options.map((option, index) => (
+            <SwiperSlide key={index} className="flex justify-center items-end">
+              <ModelCanvas
+                onClick={() => handleModelCanvasClick(option)}
+                model={<Celurit isHovered />}
+                title={option.title}
+                description={option.description}
+                backgroundColor={option.backgroundColor}
+                width="289px"
+                height={option.height}
+                titleColor="#A3ECFF"
+                descriptionColor="#FFF"
+              />
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
 
