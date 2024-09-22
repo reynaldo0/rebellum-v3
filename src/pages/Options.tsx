@@ -10,7 +10,7 @@ import Celurit from "../components/models/Celurit";
 const Options = ({ onBack }: { onBack: () => void }) => {
   const [showDialog, setShowDialog] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [modalContent, setModalContent] = useState({ title: '', description: '', image: '' });
+  const [modalContent, setModalContent] = useState({ title: '', information: '', description: '', image: '' });
   const [cloudOffset, setCloudOffset] = useState(0);
   const isMobile = window.innerWidth <= 768;
   const swiperRef = useRef<SwiperRef>(null);
@@ -37,9 +37,10 @@ const Options = ({ onBack }: { onBack: () => void }) => {
 
   const options = [
     {
-      title: "Bayi",
+      title: "Tawuran",
       description: "1-12 Bulan",
-      image: "/path/to/bayi-image.jpg",
+      information: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting",
+      image: "/team/salman.jpg",
       link: "/baby",
       backgroundColor: "#0D46A4",
       height: "225px",
@@ -47,6 +48,7 @@ const Options = ({ onBack }: { onBack: () => void }) => {
     {
       title: "Anak - Anak",
       description: "3-12 Tahun",
+      information: "loremipsumkan saja",
       image: "/path/to/anak-anak-image.jpg",
       link: "/child",
       backgroundColor: "#E33B3B",
@@ -55,6 +57,7 @@ const Options = ({ onBack }: { onBack: () => void }) => {
     {
       title: "Remaja",
       description: "13-17 Tahun",
+      information: "loremipsumkan saja",
       image: "/path/to/remaja-image.jpg",
       link: "/teen",
       backgroundColor: "#0E9D75",
@@ -63,6 +66,7 @@ const Options = ({ onBack }: { onBack: () => void }) => {
     {
       title: "Dewasa",
       description: "18-59 Tahun",
+      information: "loremipsumkan saja",
       image: "/path/to/dewasa-image.jpg",
       link: "/adult",
       backgroundColor: "#F36932",
@@ -71,6 +75,7 @@ const Options = ({ onBack }: { onBack: () => void }) => {
     {
       title: "Lansia",
       description: "60 tahun keatas",
+      information: "loremipsumkan saja",
       image: "/path/to/lansia-image.jpg",
       link: "/elderly",
       backgroundColor: "#16AE79",
@@ -78,7 +83,7 @@ const Options = ({ onBack }: { onBack: () => void }) => {
     },
   ];
 
-  const handleModelCanvasClick = (option: { title: string; description: string; image: string; link: string }) => {
+  const handleModelCanvasClick = (option: { title: string; information: string; description: string; image: string; link: string }) => {
     setModalContent(option);
     setShowModal(true);
   };
@@ -101,6 +106,7 @@ const Options = ({ onBack }: { onBack: () => void }) => {
       {showModal && (
         <Modal
           title={modalContent.title}
+          information={modalContent.information}
           description={modalContent.description}
           image={modalContent.image}
           onClose={closeModal}
