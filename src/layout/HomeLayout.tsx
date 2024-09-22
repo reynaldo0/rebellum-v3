@@ -6,7 +6,7 @@ import Landing from '../pages/Landing';
 const HomeLayout = () => {
   const { open, setOpen } = useStateContext();
   const [transition, setTransition] = useState('fade-in');
-  const [showWelcome, setShowWelcome] = useState(false);
+  const [showWelcome] = useState(false);
 
   const handleBackToHome = () => {
     setTransition('fade-out');
@@ -26,7 +26,7 @@ const HomeLayout = () => {
         </div>
       ) : (
         <div className={transition}>
-          <Landing />
+          <Landing  />
         </div>
       )}
 

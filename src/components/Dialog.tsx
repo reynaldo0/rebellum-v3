@@ -19,7 +19,6 @@ const Dialog = () => {
 
   const [currentDialogIndex, setCurrentDialogIndex] = useState(0);
   const [isDialogVisible, setIsDialogVisible] = useState(true);
-  const [isGIFLoaded, setIsGIFLoaded] = useState(true);
   const [isFallbackImage, setIsFallbackImage] = useState(false);
   const mediaRef = useRef<HTMLImageElement>(null);
 
@@ -45,7 +44,6 @@ const Dialog = () => {
   const handleNext = () => {
     if (currentDialogIndex < dialogs.length - 1) {
       setCurrentDialogIndex(currentDialogIndex + 1);
-      setIsGIFLoaded(true);
       setIsFallbackImage(false);
     } else {
       setIsDialogVisible(false);
