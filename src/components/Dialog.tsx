@@ -12,8 +12,8 @@ const Dialog = () => {
     {
       text: "Silahkan pilih kategori usia yang kamu butuhkan",
       audio: "/audio/pilih.mp3",
-      mascot: "/maskot/pilih.gif",
-      fallbackMascot: "/maskot/diam.png",
+      mascot: "/team/aldo.jpg",
+      fallbackMascot: "/team/aldo.jpg",
     },
   ];
 
