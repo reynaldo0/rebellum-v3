@@ -1,5 +1,6 @@
 import React from 'react';
 import { options } from '../docs/optionsData'; // Import options
+import { Link } from 'react-router-dom';
 
 interface ModalProps {
   optionIndex: number; // Indeks opsi yang dipilih
@@ -34,9 +35,9 @@ const Modal: React.FC<ModalProps> = ({ optionIndex, onClose }) => {
               ))}
             </div>
             <div className="flex absolute items-center justify-end bottom-5 right-5 space-x-2 hover:opacity-80">
-              <button className="text-white font-semibold opacity-100 hover:opacity-50">
+              <Link to="/home" className="text-white font-semibold opacity-100 hover:opacity-50">
                 Selanjutnya
-              </button>
+              </Link>
               <svg
                 width="8"
                 height="14"

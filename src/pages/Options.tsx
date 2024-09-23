@@ -6,6 +6,7 @@ import Modal from "../components/Modal";
 import "swiper/css";
 import Celurit from "../components/models/Celurit";
 import { options } from "../docs/optionsData";
+import { Link } from "react-router-dom";
 
 const Options = ({ onBack }: { onBack: () => void }) => {
   const [showDialog, setShowDialog] = useState(false);
@@ -194,8 +195,8 @@ const Options = ({ onBack }: { onBack: () => void }) => {
             </button>
           </div>
           <div className="xl:px-14 left-0 transform gap-3 flex items-center">
-            <button
-              onClick={onBack}
+            <Link
+              to="/home"
               className="text-black font-semibold opacity-50 hover:opacity-100 flex items-center space-x-2">
               <span>Selengkapnya</span>
               <svg
@@ -210,7 +211,7 @@ const Options = ({ onBack }: { onBack: () => void }) => {
                   stroke="black"
                 />
               </svg>
-            </button>
+            </Link>
           </div>
         </div>
       </div>
