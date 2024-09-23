@@ -140,8 +140,8 @@ const Options = ({ onBack }: { onBack: () => void }) => {
       </div>
 
       <div className="container">
-        <div className="flex justify-between w-full">
-          <div className="left-0 transform flex items-center space-x-2">
+        <div className="flex justify-between w-full pt-5 items-center">
+          <div className="xl:px-14 left-0 transform gap-3 flex items-center">
             <svg
               width="8"
               height="14"
@@ -162,7 +162,7 @@ const Options = ({ onBack }: { onBack: () => void }) => {
             </button>
           </div>
 
-          <div className="flex gap-3">
+          <div className="flex gap-3 xl:absolute  md:right-[590px] 2xl:right-[650px]">
             <button
               onClick={handlePrev}
               className="transform bg-transparent border-secondary border-2 text-white p-2 rounded-full shadow-lg button-animate-prev">
@@ -191,6 +191,25 @@ const Options = ({ onBack }: { onBack: () => void }) => {
                 <path
                   d="M4.50001 12.9999H16.086L11.586 17.4999L13.0001 18.9139L19.9141 11.9999L13.0001 5.08594L11.586 6.49994L16.086 10.9999H4.50001V12.9999Z"
                   fill="#FF682C"
+                />
+              </svg>
+            </button>
+          </div>
+          <div className="xl:px-14 left-0 transform gap-3 flex items-center">
+            <button
+              onClick={onBack}
+              className="text-black font-semibold opacity-50 hover:opacity-100 flex items-center space-x-2">
+              <span>Selengkapnya</span>
+              <svg
+                width="8"
+                height="14"
+                viewBox="0 0 8 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M5.73341 7.35136L6.08044 7L5.7334 6.64864L0.702771 1.55531L1.53617 0.711526L7.32613 6.57365C7.32615 6.57367 7.32617 6.57368 7.32618 6.5737C7.43678 6.68574 7.5 6.83896 7.5 7C7.5 7.16104 7.43678 7.31426 7.32618 7.4263C7.32617 7.42632 7.32615 7.42633 7.32613 7.42635L1.53617 13.2885L0.702771 12.4447L5.73341 7.35136Z"
+                  fill="#909090"
+                  stroke="black"
                 />
               </svg>
             </button>
