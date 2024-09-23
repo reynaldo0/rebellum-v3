@@ -297,6 +297,12 @@ button:hover .button-text {
   transform: translateX(100%);
 }
 
+@media (max-width: 768px) {
+  .cloud-slide-left, .cloud-slide-right {
+    @apply w-72 h-auto;
+  }
+}
+
 /* .fade-in {
   opacity: 0;
   animation: fadeIn 0.5s forwards;

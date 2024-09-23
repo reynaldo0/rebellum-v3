@@ -36,6 +36,24 @@ const Options = ({ onBack }: { onBack: () => void }) => {
     };
   }, []);
 
+  const cloud1Style: React.CSSProperties = {
+    transform: `translateX(${cloudOffset * 0.8}px)`,
+    position: 'absolute',
+    top: '0',
+    right: '-28px',
+    zIndex: 1,
+    transition: 'transform 0.5s ease-out'
+  };
+
+  const cloud2Style: React.CSSProperties = {
+    transform: `translateX(${cloudOffset * 1.2}px)`,
+    position: 'absolute',
+    top: '0',
+    left: '-28px',
+    zIndex: 1,
+    transition: 'transform 1s ease-out'
+  };
+
   const handleModelCanvasClick = (index: number) => {
     setSelectedOptionIndex(index); // Set the selected option index
     setShowModal(true);
@@ -57,6 +75,22 @@ const Options = ({ onBack }: { onBack: () => void }) => {
   return (
     <section className="relative min-h-screen bg-cover bg-center bg-no-repeat bg-[url(/background/golongan.png)] overflow-hidden page-container">
       {showDialog && <Dialog />}
+
+      {/* Awan-awan */}
+      <img
+        src="/bg/awan-opsi-1.webp"
+        alt="awan biruu"
+        className="cloud cloud-slide-left"
+        style={cloud1Style}
+      />
+
+      <img
+        src="/bg/awan-opsi-2.webp"
+        alt="awan biruu lagi"
+        className="cloud cloud-slide-right"
+        style={cloud2Style}
+      />
+
       {showModal && selectedOptionIndex !== null && (
         <Modal
           optionIndex={selectedOptionIndex} // Pass selected index to Modal
