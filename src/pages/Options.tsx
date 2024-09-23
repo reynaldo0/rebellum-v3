@@ -3,7 +3,7 @@ import ModelCanvas from "../components/ModelCanvas";
 import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import Dialog from "../components/Dialog";
-import Modal from "../components/Modal"; 
+import Modal from "../components/Modal";
 import "swiper/css";
 import Celurit from "../components/models/Celurit";
 import { options } from "../docs/optionsData"; // Import options
@@ -39,8 +39,8 @@ const Options = ({ onBack }: { onBack: () => void }) => {
   const cloud1Style: React.CSSProperties = {
     transform: `translateX(${cloudOffset * 0.8}px)`,
     position: 'absolute',
-    top: '0',
-    right: '-28px',
+    top: '-58px',
+    right: '-128px',
     zIndex: 1,
     transition: 'transform 0.5s ease-out'
   };
@@ -48,8 +48,8 @@ const Options = ({ onBack }: { onBack: () => void }) => {
   const cloud2Style: React.CSSProperties = {
     transform: `translateX(${cloudOffset * 1.2}px)`,
     position: 'absolute',
-    top: '0',
-    left: '-28px',
+    top: '-58px',
+    left: '-208px',
     zIndex: 1,
     transition: 'transform 1s ease-out'
   };
@@ -106,7 +106,7 @@ const Options = ({ onBack }: { onBack: () => void }) => {
 
       <div className="relative z-10 text-center bg-transparent">
         <h1 className="text-4xl font-bold text-secondary mb-2 pt-10 md:py-0">
-          Golongan
+          Perilaku <span className="text-yellow">Buruk</span>
         </h1>
         <h2 className="text-xl text-primary">Pilihlah Kategori Usia Anda!</h2>
       </div>
