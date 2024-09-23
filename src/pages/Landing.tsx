@@ -60,21 +60,17 @@ const Landing = (
             autoPlay
             muted
             className="absolute -z-20 inset-0 w-full h-full object-cover">
-            <source src="/bg/background.mp4" type="video/mp4" />
+            <source src="/bg/hero.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
 
           <div className="px-4 mx-auto max-w-screen-xl text-center py-40 md:py-24 md:pt-52">
             <h1 className="mb-4 text-3xl text-white font-extrabold tracking-tight font-poppins leading-none md:text-5xl lg:text-6xl">
-              Gaya Hidup Sehat{" "}
-              <span className="text-yellow">Sulit Dicapai?</span>
+            Kenali Batas, {" "}
+              <span className="text-yellow">Jauhi Noda!</span>
             </h1>
             <p className="mb-8 text-sm font-normal text-gray-300 lg:text-base sm:px-16 lg:px-48 pt-2">
-              "Menjaga gaya hidup sehat bisa menjadi tantangan karena rutinitas
-              sibuk, perubahan kebutuhan kesehatan seiring usia, dan kebiasaan
-              yang sulit diubah. Kami menyediakan panduan praktis dan tips untuk
-              setiap tahap kehidupan dari bayi hingga lansia untuk membantu Anda
-              mengatasi hambatan dan mencapai kesejahteraan yang optimal."
+            "Kenakalan remaja sering kali muncul akibat tekanan sosial dan pencarian identitas. Penting untuk memahami faktor-faktor yang mempengaruhi perilaku mereka. Kami menyediakan panduan dan strategi bagi orang tua, pendidik, dan remaja untuk mengatasi godaan, membangun kepercayaan diri, dan menciptakan lingkungan yang mendukung pertumbuhan positif. Dengan pendekatan yang tepat, kenakalan bisa menjadi kesempatan untuk belajar dan berkembang."
             </p>
             <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
               <button

@@ -62,7 +62,7 @@ const Hero: React.FC<HeroProps> = ({ onStart }) => {
             muted
             className="absolute -z-20 inset-0 w-full h-full object-cover"
           >
-            <source src="/background/background.mp4" type="video/mp4" />
+            <source src="/public/bg/hero.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
 
