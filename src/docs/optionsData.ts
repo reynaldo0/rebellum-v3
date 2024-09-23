@@ -5,7 +5,7 @@ export const options = [
         description: "1-12 Bulan",
         information: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
         image: "/team/salman.jpg",
-        backgroundColor: "#0D46A4",
+        backgroundColor: "#5562AD",
         height: "225px",
         caseImages: [
             '/kasus.png', // Ganti dengan gambar yang sesuai
@@ -23,7 +23,7 @@ export const options = [
         backgroundColor: "#E33B3B",
         height: "300px",
         caseImages: [
-            '//kasus.png',
+            '/kasus.png',
             '/kasus.png',
             '/kasus.png',
             '/kasus.png',
