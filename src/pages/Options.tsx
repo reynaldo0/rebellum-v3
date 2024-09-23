@@ -1,21 +1,19 @@
 import { useEffect, useRef, useState } from "react";
 import ModelCanvas from "../components/ModelCanvas";
-import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import Dialog from "../components/Dialog";
 import Modal from "../components/Modal";
 import "swiper/css";
 import Celurit from "../components/models/Celurit";
-import { options } from "../docs/optionsData"; // Import options
+import { options } from "../docs/optionsData";
 
 const Options = ({ onBack }: { onBack: () => void }) => {
   const [showDialog, setShowDialog] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [selectedOptionIndex, setSelectedOptionIndex] = useState<number | null>(null); // Track selected option index
+  const [selectedOptionIndex, setSelectedOptionIndex] = useState<number | null>(null);
   const [cloudOffset, setCloudOffset] = useState(0);
   const isMobile = window.innerWidth <= 768;
   const swiperRef = useRef<SwiperRef>(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     setTimeout(() => {
@@ -55,13 +53,13 @@ const Options = ({ onBack }: { onBack: () => void }) => {
   };
 
   const handleModelCanvasClick = (index: number) => {
-    setSelectedOptionIndex(index); // Set the selected option index
+    setSelectedOptionIndex(index);
     setShowModal(true);
   };
 
   const closeModal = () => {
     setShowModal(false);
-    setSelectedOptionIndex(null); // Reset index when closing
+    setSelectedOptionIndex(null); 
   };
 
   const handlePrev = () => {
@@ -93,7 +91,7 @@ const Options = ({ onBack }: { onBack: () => void }) => {
 
       {showModal && selectedOptionIndex !== null && (
         <Modal
-          optionIndex={selectedOptionIndex} // Pass selected index to Modal
+          optionIndex={selectedOptionIndex}
           onClose={closeModal}
         />
       )}
@@ -124,7 +122,7 @@ const Options = ({ onBack }: { onBack: () => void }) => {
           {options.map((option, index) => (
             <SwiperSlide key={index} className="flex justify-center items-end">
               <ModelCanvas
-                onClick={() => handleModelCanvasClick(index)} // Pass the index
+                onClick={() => handleModelCanvasClick(index)} 
                 model={<Celurit isHovered />}
                 title={option.title}
                 description={option.description}
@@ -165,7 +163,7 @@ const Options = ({ onBack }: { onBack: () => void }) => {
           <div className="flex gap-3 xl:absolute  md:right-[590px] 2xl:right-[650px]">
             <button
               onClick={handlePrev}
-              className="transform bg-transparent border-secondary border-2 text-white p-2 rounded-full shadow-lg button-animate-prev">
+              className="transform bg-transparent border-yellow border-2 text-white p-2 rounded-full button-animate-prev scale-90">
               <svg
                 width="24"
                 height="24"
@@ -174,14 +172,14 @@ const Options = ({ onBack }: { onBack: () => void }) => {
                 xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M19.5001 12.9999H7.91406L12.4141 17.4999L11.0001 18.9139L4.08606 11.9999L11.0001 5.08594L12.4141 6.49994L7.91406 10.9999H19.5001V12.9999Z"
-                  fill="#FF682C"
+                  fill="#FF9900"
                 />
               </svg>
             </button>
 
             <button
               onClick={handleNext}
-              className="transform bg-transparent border-secondary border-2 text-white p-2 rounded-full shadow-lg button-animate-next">
+              className="transform bg-transparent border-yellow border-2 text-white p-2 rounded-full button-animate-next scale-90">
               <svg
                 width="24"
                 height="24"
@@ -190,7 +188,7 @@ const Options = ({ onBack }: { onBack: () => void }) => {
                 xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M4.50001 12.9999H16.086L11.586 17.4999L13.0001 18.9139L19.9141 11.9999L13.0001 5.08594L11.586 6.49994L16.086 10.9999H4.50001V12.9999Z"
-                  fill="#FF682C"
+                  fill="#FF9900"
                 />
               </svg>
             </button>
