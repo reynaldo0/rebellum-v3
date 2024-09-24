@@ -107,7 +107,7 @@ const Options = ({ onBack }: { onBack: () => void }) => {
         <h1 className="text-4xl font-bold text-secondary mb-2 pt-10 md:py-0">
           Perilaku <span className="text-yellow">Buruk</span>
         </h1>
-        <h2 className="text-xl text-primary">Pilihlah Kategori Usia Anda!</h2>
+        <h2 className="text-xl text-primary">Silahkan Pilih Kasus Kenakalan Remaja</h2>
       </div>
 
       <div className="relative z-10 px-16 bg-transparent mx-auto max-w-screen-xl flex">

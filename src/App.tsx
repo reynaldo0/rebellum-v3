@@ -14,9 +14,7 @@ function App() {
   return (
     <>
       <Navbar />
-
       <ToUp />
-
       <Home />
       <About />
       <Kasus />
