@@ -26,6 +26,7 @@ const Modal: React.FC<ModalProps> = ({ optionIndex, onClose }) => {
           <img src={option.image} alt={option.title} className="w-1/3 h-auto" />
           <div className="p-4 w-2/3 px-10 pt-5">
             <h2 className="text-3xl font-bold">{option.title}</h2>
+
             {/* Use LinkPreview for the information field */}
             <p className="mt-5">
               <LinkPreview url={option.informationLink} className="font-bold text-white">
