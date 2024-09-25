@@ -36,22 +36,23 @@ const Options = ({ onBack }: { onBack: () => void }) => {
   }, []);
 
   const cloud1Style: React.CSSProperties = {
-    transform: `translateX(${cloudOffset * 0.8}px)`,
+    transform: `translateX(${cloudOffset * (isMobile ? 0.5 : 0.8)}px)`,
     position: 'absolute',
-    top: '-58px',
-    right: '-128px',
+    top: isMobile ? '0' : '-58px',
+    right: isMobile ? '-28px' : '-128px',
     zIndex: 1,
-    transition: 'transform 0.5s ease-out'
+    transition: 'transform 0.5s ease-out',
   };
 
   const cloud2Style: React.CSSProperties = {
-    transform: `translateX(${cloudOffset * 1.2}px)`,
+    transform: `translateX(${cloudOffset * (isMobile ? 0.8 : 1.2)}px)`,
     position: 'absolute',
-    top: '-58px',
-    left: '-208px',
+    top: isMobile ? '0' : '-58px',
+    left: isMobile ? '-28px' : '-208px',
     zIndex: 1,
-    transition: 'transform 1s ease-out'
+    transition: 'transform 1s ease-out',
   };
+
 
   const handleModelCanvasClick = (index: number) => {
     setSelectedOptionIndex(index);
@@ -60,7 +61,7 @@ const Options = ({ onBack }: { onBack: () => void }) => {
 
   const closeModal = () => {
     setShowModal(false);
-    setSelectedOptionIndex(null); 
+    setSelectedOptionIndex(null);
   };
 
   const handlePrev = () => {
@@ -123,7 +124,7 @@ const Options = ({ onBack }: { onBack: () => void }) => {
           {options.map((option, index) => (
             <SwiperSlide key={index} className="flex justify-center items-end">
               <ModelCanvas
-                onClick={() => handleModelCanvasClick(index)} 
+                onClick={() => handleModelCanvasClick(index)}
                 model={<Celurit isHovered />}
                 title={option.title}
                 description={option.description}
