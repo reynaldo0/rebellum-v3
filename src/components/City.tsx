@@ -1,4 +1,4 @@
-import { useRef } from "react";
+  import { useRef } from "react";
 import useScrollAnimation from "../func/scrollAnimation";
 
 const City = () => {

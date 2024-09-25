@@ -1,5 +1,4 @@
 import ChatBot from "./chat-bot";
-import ChatBox from "./components/ChatBox";
 import { Footer } from "./components/Footer";
 import Navbar from "./components/Navbar";
 // import ToUp from "./components/ToUp";
@@ -24,7 +23,7 @@ function App() {
       <Data />
       <Konsultasi />
       <Dokumentasi />
-      <ChatBox/>
+      <ChatBot/>
       <Team />
 
       <Footer />
