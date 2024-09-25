@@ -23,13 +23,13 @@ const Modal: React.FC<ModalProps> = ({ optionIndex, onClose }) => {
           </svg>
         </button>
         <div className="flex text-white">
-          <img src={option.image} alt={option.title} className="w-1/3 h-auto" />
-          <div className="p-4 w-2/3 px-10 pt-5">
-            <h2 className="text-3xl font-bold">{option.title}</h2>
+          <img src={option.image} alt={option.title} className="md:w-1/3 h-auto hidden md:block" />
+          <div className="p-4 md:w-2/3 md:px-10 pt-5">
+            <h2 className="text-2xl md:text-3xl font-bold">{option.title}</h2>
 
             {/* Use LinkPreview for the information field */}
-            <p className="mt-5">
-              <LinkPreview url={option.informationLink} className="font-bold text-white">
+            <p className="mt-5 md:pr-10">
+              <LinkPreview url={option.informationLink} className="font-normal text-sm text-white">
                 {option.information}
               </LinkPreview>
             </p>
@@ -40,7 +40,7 @@ const Modal: React.FC<ModalProps> = ({ optionIndex, onClose }) => {
                 <img key={index} src={caseImage} alt={`Kasus ${index + 1}`} className="w-1/5 h-auto rounded" />
               ))}
             </div>
-            <div className="flex absolute items-center justify-end bottom-5 right-5 space-x-2 hover:opacity-80">
+            <div className="flex absolute items-center justify-end bottom-2 md:bottom-5 right-5 space-x-2 hover:opacity-80">
               <Link to="/home" className="text-white font-semibold opacity-100 hover:opacity-50">
                 Selanjutnya
               </Link>
