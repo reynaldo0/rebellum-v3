@@ -162,7 +162,7 @@ const Options = ({ onBack }: { onBack: () => void }) => {
             </button>
           </div>
 
-          <div className="flex gap-3 absolute bottom-56 md:bottom-auto md:right-[590px] 2xl:right-[650px] w-full px-4 md:w-auto md:px-0 z-50">
+          <div className="flex gap-3 absolute bottom-56 md:bottom-auto md:right-[590px] 2xl:right-[650px] w-full px-4 md:w-auto md:px-0 z-10">
             <button
               onClick={handlePrev}
               className="transform bg-transparent border-yellow border-2 text-white p-2 rounded-full button-animate-prev scale-90 absolute left-0 md:relative md:left-auto">

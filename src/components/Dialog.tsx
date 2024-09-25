@@ -65,7 +65,7 @@ const Dialog = () => {
 
   return (
     isDialogVisible && (
-      <div className="absolute inset-0 bg-black/60 z-20 backdrop-blur-md w-full flex items-center">
+      <div className="absolute inset-0 bg-black/60 z-[99999] backdrop-blur-md w-full flex items-center">
         <div className="container">
           <div className="flex flex-col md:flex-row items-center justify-center gap-10 w-full">
             <img

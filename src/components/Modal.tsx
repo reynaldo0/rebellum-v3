@@ -12,7 +12,7 @@ const Modal: React.FC<ModalProps> = ({ optionIndex, onClose }) => {
   const option = options[optionIndex]; // Ambil opsi berdasarkan indeks
 
   return (
-    <div className="absolute inset-0 bg-black/60 z-20 flex items-end justify-center">
+    <div className="absolute inset-0 bg-black/60 z-[9999] flex items-end justify-center">
       <div
         className="w-full max-w-6xl h-[450px] rounded-xl overflow-hidden relative mb-20"
         style={{ backgroundColor: option.backgroundColor }} // Use background color from option
