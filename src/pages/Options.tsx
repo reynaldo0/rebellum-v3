@@ -140,7 +140,7 @@ const Options = ({ onBack }: { onBack: () => void }) => {
       </div>
 
       <div className="container">
-        <div className="flex justify-between w-full pt-5 items-center">
+        <div className="flex justify-between w-full py-2 md:pt-5 items-center">
           <div className="xl:px-14 left-0 transform gap-3 flex items-center">
             <svg
               width="8"
@@ -162,10 +162,10 @@ const Options = ({ onBack }: { onBack: () => void }) => {
             </button>
           </div>
 
-          <div className="flex gap-3 xl:absolute  md:right-[590px] 2xl:right-[650px]">
+          <div className="flex gap-3 absolute bottom-56 md:bottom-auto md:right-[590px] 2xl:right-[650px] w-full px-4 md:w-auto md:px-0 z-50">
             <button
               onClick={handlePrev}
-              className="transform bg-transparent border-yellow border-2 text-white p-2 rounded-full button-animate-prev scale-90">
+              className="transform bg-transparent border-yellow border-2 text-white p-2 rounded-full button-animate-prev scale-90 absolute left-0 md:relative md:left-auto">
               <svg
                 width="24"
                 height="24"
@@ -181,7 +181,7 @@ const Options = ({ onBack }: { onBack: () => void }) => {
 
             <button
               onClick={handleNext}
-              className="transform bg-transparent border-yellow border-2 text-white p-2 rounded-full button-animate-next scale-90">
+              className="transform bg-transparent border-yellow border-2 text-white p-2 rounded-full button-animate-next scale-90 absolute right-7 md:relative md:right-auto">
               <svg
                 width="24"
                 height="24"
@@ -195,6 +195,7 @@ const Options = ({ onBack }: { onBack: () => void }) => {
               </svg>
             </button>
           </div>
+
           <div className="xl:px-14 left-0 transform gap-3 flex items-center">
             <Link
               to="/home"
