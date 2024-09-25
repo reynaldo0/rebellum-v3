@@ -10,18 +10,24 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@radix-ui/react-avatar": "^1.1.0",
+    "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-hover-card": "^1.1.1",
+    "@radix-ui/react-scroll-area": "^1.1.0",
+    "@radix-ui/react-slot": "^1.1.0",
     "@react-three/drei": "^9.108.3",
     "@react-three/fiber": "^8.16.8",
     "@react-three/postprocessing": "^2.16.2",
     "@reacticons/ionicons": "^7.1.0",
     "aos": "^2.3.4",
     "chart.js": "^4.4.1",
+    "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "flowbite": "^2.2.1",
     "flowbite-react": "^0.10.1",
     "framer-motion": "^11.5.6",
     "ionicons": "^7.4.0",
+    "lucide-react": "^0.446.0",
     "qss": "^3.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -29,7 +35,8 @@
     "swiper": "^11.1.4",
     "tailwind-merge": "^2.5.2",
     "three": "^0.166.1",
-    "typed.js": "^2.1.0"
+    "typed.js": "^2.1.0",
+    "vanilla-tilt": "^1.8.1"
   },
   "devDependencies": {
     "@types/aos": "^3.0.7",

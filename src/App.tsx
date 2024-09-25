@@ -1,7 +1,8 @@
+import ChatBot from "./chat-bot";
 import ChatBox from "./components/ChatBox";
 import { Footer } from "./components/Footer";
 import Navbar from "./components/Navbar";
-import ToUp from "./components/ToUp";
+// import ToUp from "./components/ToUp";
 import About from "./pages/About";
 import Data from "./pages/Data";
 import Dokumentasi from "./pages/Dokumentasi";
@@ -15,7 +16,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <ToUp />
+      <ChatBot/>
       <Home />
       <About />
       <Kasus />
