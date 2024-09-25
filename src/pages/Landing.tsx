@@ -66,8 +66,8 @@ const Landing = (
 
           <div className="px-4 mx-auto max-w-screen-xl text-center py-40 md:py-24 md:pt-52">
             <h1 className="mb-4 text-3xl text-white font-extrabold tracking-tight font-poppins leading-none md:text-5xl lg:text-6xl">
-            Kenali Batas, {" "}
-              <span className="text-yellow">Jauhi Noda!</span>
+            Stop Kenakalan, {" "}
+              <span className="text-yellow">Mulai Perubahan!</span>
             </h1>
             <p className="mb-8 text-sm font-normal text-gray-300 lg:text-base sm:px-16 lg:px-48 pt-2">
             "Kenakalan remaja sering kali muncul akibat tekanan sosial dan pencarian identitas. Penting untuk memahami faktor-faktor yang mempengaruhi perilaku mereka. Kami menyediakan panduan dan strategi bagi orang tua, pendidik, dan remaja untuk mengatasi godaan, membangun kepercayaan diri, dan menciptakan lingkungan yang mendukung pertumbuhan positif. Dengan pendekatan yang tepat, kenakalan bisa menjadi kesempatan untuk belajar dan berkembang."
