@@ -4,7 +4,6 @@ import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import Dialog from "../components/Dialog";
 import Modal from "../components/Modal";
 import "swiper/css";
-import Celurit from "../components/models/Celurit";
 import { options } from "../docs/optionsData";
 import { Link } from "react-router-dom";
 
