@@ -2,11 +2,18 @@ import React from 'react';
 import { options } from '../docs/optionsData'; // Import options
 import { Link } from 'react-router-dom';
 import { LinkPreview } from '../components/ui/link-preview'; // Import LinkPreview
+import { Canvas } from '@react-three/fiber'; // Import Canvas dari react-three-fiber
+import { OrbitControls, useGLTF } from '@react-three/drei'; // Import useGLTF untuk memuat model 3D
 
 interface ModalProps {
   optionIndex: number; // Indeks opsi yang dipilih
   onClose: () => void;
 }
+
+const Model3D: React.FC<{ modelPath: string }> = ({ modelPath }) => {
+  const { scene } = useGLTF(modelPath); // Memuat model 3D
+  return <primitive object={scene} />;
+};
 
 const Modal: React.FC<ModalProps> = ({ optionIndex, onClose }) => {
   const option = options[optionIndex]; // Ambil opsi berdasarkan indeks
@@ -15,7 +22,7 @@ const Modal: React.FC<ModalProps> = ({ optionIndex, onClose }) => {
     <div className="absolute inset-0 bg-black/60 z-[9999] flex items-end justify-center">
       <div
         className="w-full max-w-6xl h-[450px] rounded-xl overflow-hidden relative mb-20"
-        style={{ backgroundColor: option.backgroundColor }} // Use background color from option
+        style={{ backgroundColor: option.backgroundColor }} // Gunakan warna latar belakang dari opsi
       >
         <button onClick={onClose} className="absolute top-2 right-2 text-white hover:text-white/20">
           <svg width="40" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -23,13 +30,26 @@ const Modal: React.FC<ModalProps> = ({ optionIndex, onClose }) => {
           </svg>
         </button>
         <div className="flex text-white">
-          <img src={option.image} alt={option.title} className="md:w-1/3 h-auto hidden md:block" />
+          {/* Render model 3D */}
+          <div className="md:w-1/3 h-auto hidden md:block z-[9999999]">
+            <Canvas>
+              <ambientLight />
+              <pointLight position={[10, 10, 10]} />
+              {option.model} {/* Render objek 3D */}
+              <OrbitControls
+                enableZoom={false} // Menonaktifkan zoom
+                maxPolarAngle={Math.PI / 2} // Batasi rotasi di sumbu X (maksimum 90 derajat)
+                minPolarAngle={0} // Batasi rotasi di sumbu X (minimum 0 derajat)
+                enablePan={false} // Menonaktifkan pan
+              />
+            </Canvas>
+          </div>
           <div className="p-4 md:w-2/3 md:px-10 pt-5">
             <h2 className="text-2xl md:text-3xl font-bold">{option.title}</h2>
 
-            {/* Use LinkPreview for the information field */}
+            {/* Gunakan LinkPreview untuk bidang informasi */}
             <p className="mt-5 md:pr-10">
-              <LinkPreview url={option.informationLink} className="font-normal text-sm text-white">
+              <LinkPreview url={String(option.informationLink)} className="font-normal text-sm text-white">
                 {option.information}
               </LinkPreview>
             </p>

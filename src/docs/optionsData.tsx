@@ -1,7 +1,19 @@
 import Botol from "../components/models/Botol";
 import Celurit from "../components/models/Celurit";
 
-export const options = [
+interface Option {
+  title: string;
+  description: string;
+  information: string;
+  informationLink: string;
+  image: string;
+  backgroundColor: string;
+  height: string;
+  model: JSX.Element; // Allow JSX elements here
+  caseImages: string[];
+}
+
+export const options:  Option[] =  [
   {
     title: "Tawuran",
     description: "1-12 Bulan",
