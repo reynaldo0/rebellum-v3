@@ -11,10 +11,10 @@ export const options = [
     backgroundColor: "#5562AD",
     height: "225px",
     caseImages: [
-      "/kasus.png", // Ganti dengan gambar yang sesuai
-      "/kasus.png",
-      "/kasus.png",
-      "/kasus.png",
+      "/public/tawuran/1.jpeg", 
+      "/public/tawuran/2.jpeg",
+      "/public/tawuran/3.jpeg",
+      "/public/tawuran/1.jpeg",
       "/kasus.png",
     ],
   },
