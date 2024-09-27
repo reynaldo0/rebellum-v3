@@ -21,14 +21,13 @@ interface Message {
 export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { sender: "bot", content: "Halo! Apakah ada yang bisa kami bantu?" },
+    { sender: "bot", content: "Halo! 👋 Apakah ada yang bisa kami bantu?" },
     {
       sender: "user",
       content:
         "Halo! Saya ingin menanyakan beberapa pertanyaan mengenai kenakalan remaja",
     },
-    { sender: "bot", content: "How can I assist you today?" },
-    { sender: "user", content: "I have a question about your services." },
+    { sender: "bot", content: ".............." },
   ]);
   const [input, setInput] = useState("");
   const scrollAreaRef = useRef<HTMLDivElement>(null);
@@ -56,11 +55,15 @@ export default function ChatBot() {
     }
   };
 
+  const handleOpen = () => {
+    setIsOpen(true);
+  };
+
   return (
     <>
       <Button
-        className="fixed bottom-4 right-4 z-50 rounded-full w-12 h-12 p-0 bg-blue-500 hover:bg-blue-600 text-white shadow-lg"
-        onClick={() => setIsOpen(true)}
+        className="fixed bottom-4 right-4 z-50 rounded-full w-12 h-12 p-0 bg-yellow hover:bg-yellow/80 text-white shadow-lg"
+        onClick={handleOpen}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -78,26 +81,21 @@ export default function ChatBot() {
         </svg>
       </Button>
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="sm:max-w-[400px] p-5 mt-10 overflow-hidden bg-white">
+        <DialogContent className={` scale-75 md:scale-100 sm:max-w-[400px] p-5 mt-10 overflow-hidden bg-white z-[99999] ${isOpen ? 'slide-in' : ''}`}>
           <DialogHeader className="p-4 border-b">
             <div className="flex items-center">
               <Avatar className="h-10 w-10 mr-3">
-                <AvatarImage src="/placeholder.svg" />
+                <AvatarImage src="/avatar.png" />
                 <AvatarFallback>RB</AvatarFallback>
               </Avatar>
               <div>
-                <DialogTitle>RebelBot</DialogTitle>
+                <DialogTitle>
+                  <span className="text-primary-100 font-bold">Rebel</span>
+                  <span className="text-yellow font-bold">Bot</span>
+                </DialogTitle>
                 <p className="text-sm text-gray-500">Online</p>
               </div>
             </div>
-            {/* <Button
-              size="icon"
-              variant="ghost"
-              className="absolute right-4 top-4"
-              onClick={() => setIsOpen(false)}
-            >
-              <X className="h-4 w-4" />
-            </Button> */}
           </DialogHeader>
           <ScrollArea className="h-[350px] p-4 bg-white" ref={scrollAreaRef}>
             {messages.map((message, index) => (
@@ -110,7 +108,7 @@ export default function ChatBot() {
                 <div
                   className={`max-w-[80%] p-3 rounded-lg ${
                     message.sender === "user"
-                      ? "bg-purple-500 text-white"
+                      ? "bg-primary-100 text-white"
                       : "bg-gray-100"
                   }`}
                 >
@@ -129,21 +127,22 @@ export default function ChatBot() {
             >
               <Input
                 className="flex-grow"
-                placeholder="Type a message..."
+                placeholder="Tuliskan Pesan..."
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
               />
               <Button
                 type="submit"
                 size="icon"
-                className="bg-blue-500 hover:bg-blue-600"
+                className="scale-150 text-primary-100"
               >
                 <Send className="h-4 w-4" />
               </Button>
             </form>
           </div>
           <div className="p-2 border-t text-center text-xs text-gray-500">
-            Powered by RebelBot
+            Didukung oleh <span className="text-primary-100 font-bold">Rebel</span>
+            <span className="text-yellow font-bold">Bot</span>
           </div>
         </DialogContent>
       </Dialog>
