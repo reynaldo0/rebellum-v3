@@ -1,4 +1,5 @@
-// docs/optionsData.ts
+import Botol from "../components/models/Botol";
+import Celurit from "../components/models/Celurit";
 
 export const options = [
   {
@@ -10,6 +11,7 @@ export const options = [
     image: "/icon/celurit.png",
     backgroundColor: "#5562AD",
     height: "225px",
+    model: <Celurit isHovered />,
     caseImages: [
       "/public/tawuran/1.jpeg", 
       "/public/tawuran/2.jpeg",
@@ -26,6 +28,7 @@ export const options = [
     image: "/path/to/anak-anak-image.jpg",
     backgroundColor: "#E33B3B",
     height: "300px",
+    model: <Botol scale={3}/>,
     caseImages: [
       "/kasus.png",
       "/kasus.png",
@@ -44,6 +47,7 @@ export const options = [
     image: "/path/to/remaja-image.jpg",
     backgroundColor: "#0E9D75",
     height: "320px",
+    model: <Celurit isHovered />,
     caseImages: [
       "/kasus.png",
       "/kasus.png",
@@ -62,6 +66,7 @@ export const options = [
 
     backgroundColor: "#F36932",
     height: "270px",
+    model: <Celurit isHovered />,
     caseImages: [
       "/kasus.png",
       "/kasus.png",
@@ -79,6 +84,7 @@ export const options = [
     image: "/path/to/lansia-image.jpg",
     backgroundColor: "#16AE79",
     height: "220px",
+    model: <Celurit isHovered />,
     caseImages: [
       "/kasus.png",
       "/kasus.png",
@@ -96,6 +102,7 @@ export const options = [
     image: "/path/to/lansia-image.jpg",
     backgroundColor: "#16AE79",
     height: "320px",
+    model: <Celurit isHovered />,
     caseImages: [
       "/kasus.png",
       "/kasus.png",

@@ -125,7 +125,7 @@ const Options = ({ onBack }: { onBack: () => void }) => {
             <SwiperSlide key={index} className="flex justify-center items-end">
               <ModelCanvas
                 onClick={() => handleModelCanvasClick(index)}
-                model={<Celurit isHovered />}
+                model={option.model}
                 title={option.title}
                 description={option.description}
                 backgroundColor={option.backgroundColor}
