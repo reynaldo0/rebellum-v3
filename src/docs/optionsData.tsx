@@ -26,7 +26,10 @@ export const options:  Option[] =  [
     image: "/icon/celurit.png",
     backgroundColor: "#5562AD",
     height: "225px",
-    model: <Celurit isHovered />,
+    model: <>
+      <Celurit scale={1.2} position={[1, 0, 0]} rotation={[0, Math.PI , Math.PI / 6]} isHovered />
+      <Celurit scale={1.2} position={[-1, 0, 0]} rotation={[0, 0 , Math.PI / 6]} isHovered />
+    </>,
     caseImages: [
       "/public/tawuran/1.jpeg", 
       "/public/tawuran/2.jpeg",

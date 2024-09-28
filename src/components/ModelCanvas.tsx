@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { Environment, OrbitControls } from "@react-three/drei";
+// import { useControls } from "leva";
 
 interface ModelCanvasProps {
   model: JSX.Element | null;
@@ -30,6 +31,17 @@ const ModelCanvas = ({
   const [isMounted, setIsMounted] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
+  // const { lightPosition1, lightPosition2 } = useControls({
+  //   lightPosition1: {
+  //     value: [-5, 15, 20],
+  //     step: 1,
+  //   },
+  //   lightPosition2: {
+  //     value: [5, -15, -15],
+  //     step: 1,
+  //   },
+  // });
+
   useEffect(() => {
     setIsMounted(true);
   }, []);
@@ -56,6 +68,8 @@ const ModelCanvas = ({
             : "-translate-x-full opacity-0"
         }`}>
         <Canvas className="bg-transparent">
+          <Environment preset="sunset" />
+
           <OrbitControls
             enableZoom={false}
             enablePan={false}
@@ -63,7 +77,11 @@ const ModelCanvas = ({
             minPolarAngle={Math.PI / 2}
             maxPolarAngle={Math.PI / 2}
           />
-          <ambientLight intensity={0.6} />
+          <ambientLight intensity={0.5} />
+
+          <directionalLight position={[-10, -30, 20]} intensity={5} />
+          <directionalLight position={[-5, 12, -40]} intensity={5} />
+          {/* <Helper/> */}
           {model ? React.cloneElement(model, { isHovered }) : null}
         </Canvas>
       </div>
