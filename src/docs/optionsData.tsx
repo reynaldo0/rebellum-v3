@@ -2,6 +2,7 @@ import Botol from "../components/models/Botol";
 import Celurit from "../components/models/Celurit";
 import Ganja from "../components/models/Ganja";
 import { Model } from "../components/models/Rokok";
+import { Sex } from "../components/models/Sex";
 
 interface Option {
   title: string;
@@ -80,7 +81,7 @@ export const options:  Option[] =  [
 
     backgroundColor: "#F36932",
     height: "270px",
-    model: <Celurit isHovered />,
+    model: <Sex />,
     caseImages: [
       "/kasus.png",
       "/kasus.png",
