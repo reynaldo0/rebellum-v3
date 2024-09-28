@@ -1,5 +1,7 @@
 import Botol from "../components/models/Botol";
 import Celurit from "../components/models/Celurit";
+import Ganja from "../components/models/Ganja";
+import { Model } from "../components/models/Rokok";
 
 interface Option {
   title: string;
@@ -40,7 +42,7 @@ export const options:  Option[] =  [
     image: "/path/to/anak-anak-image.jpg",
     backgroundColor: "#E33B3B",
     height: "300px",
-    model: <Botol scale={3}/>,
+    model: <Ganja scale={15}/>,
     caseImages: [
       "/kasus.png",
       "/kasus.png",
@@ -59,7 +61,7 @@ export const options:  Option[] =  [
     image: "/path/to/remaja-image.jpg",
     backgroundColor: "#0E9D75",
     height: "320px",
-    model: <Celurit isHovered />,
+    model: <Model/>,
     caseImages: [
       "/kasus.png",
       "/kasus.png",
@@ -114,7 +116,7 @@ export const options:  Option[] =  [
     image: "/path/to/lansia-image.jpg",
     backgroundColor: "#16AE79",
     height: "320px",
-    model: <Celurit isHovered />,
+    model: <Botol scale={4} />,
     caseImages: [
       "/kasus.png",
       "/kasus.png",

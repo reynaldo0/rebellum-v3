@@ -1,5 +1,4 @@
 import * as THREE from "three";
-// import React, { useRef } from 'react'
 import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
 
@@ -15,7 +14,7 @@ type GLTFResult = GLTF & {
 const Botol = (props: JSX.IntrinsicElements["group"]) => {
   const { nodes, materials } = useGLTF("/3D/botol.glb") as GLTFResult;
   return (
-    <group {...props} dispose={null}>
+    <group {...props} dispose={null} position={[0, -1.5, 0]}> {/* Geser ke bawah */}
       <mesh
         castShadow
         receiveShadow
@@ -27,6 +26,6 @@ const Botol = (props: JSX.IntrinsicElements["group"]) => {
   );
 };
 
-useGLTF.preload("/botol.glb");
+useGLTF.preload("/3D/botol.glb");
 
 export default Botol;
