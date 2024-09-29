@@ -7,14 +7,16 @@ const Team: React.FC = () => {
         <h1
           data-aos="fade-up"
           data-aos-easing="ease-in-out"
-          className="text-center font-radioCasnada text-3xl font-semibold md:text-4xl">
+          className="text-center font-radioCasnada text-3xl font-semibold md:text-4xl"
+        >
           Tim <span className="text-yellow">kami</span>
         </h1>
         <p
           data-aos="fade-up"
           data-aos-easing="ease-in-out"
           data-aos-delay="100"
-          className="text-center text-base text-secondary-200">
+          className="text-center text-base text-secondary-200"
+        >
           Bersama <span className="font-bold">Rebellum</span>, kenakalan remaja
           <span className="font-bold"> Terhapuskan!</span>
         </p>
@@ -23,7 +25,8 @@ const Team: React.FC = () => {
           <TeamCard.Item
             image="/team/aldo.jpg"
             name="Reynaldo Yusellino"
-            description="Illustrator, 3D designer">
+            description="Illustrator, 3D designer"
+          >
             <TeamCard.Link
               href="https://www.instagram.com/rynldysllino"
               icon="logo-instagram"
@@ -37,10 +40,12 @@ const Team: React.FC = () => {
               icon="logo-github"
             />
           </TeamCard.Item>
+
           <TeamCard.Item
             image="/team/salman.jpg"
             name="M. Salman Al Farisi"
-            description="Leader, data analyst">
+            description="Leader, data analyst"
+          >
             <TeamCard.Link
               href="https://www.instagram.com/avlfarizii"
               icon="logo-instagram"
@@ -51,10 +56,12 @@ const Team: React.FC = () => {
               icon="logo-github"
             />
           </TeamCard.Item>
+
           <TeamCard.Item
             image="/team/rama.jpg"
             name="Ramadina A."
-            description="Programmer">
+            description="Programmer"
+          >
             <TeamCard.Link
               href="https://www.instagram.com/ramtxh"
               icon="logo-instagram"
@@ -65,6 +72,43 @@ const Team: React.FC = () => {
             />
             <TeamCard.Link
               href="https://github.com/ramarfx"
+              icon="logo-github"
+            />
+          </TeamCard.Item>
+
+          <TeamCard.Item
+            image="/team/rama.jpg"
+            name="Ramadina A."
+            description="Programmer"
+          >
+            <TeamCard.Link
+              href="https://www.instagram.com/ramtxh"
+              icon="logo-instagram"
+            />
+            <TeamCard.Link
+              href="https://www.linkedin.com/in/ramadina-al-muzthazam-5028482a2"
+              icon="logo-linkedin"
+            />
+            <TeamCard.Link
+              href="https://github.com/ramarfx"
+              icon="logo-github"
+            />
+          </TeamCard.Item>
+          <TeamCard.Item
+            image="/team/rama.jpg"
+            name="Alifian A.R."
+            description="Programmer"
+          >
+            <TeamCard.Link
+              href="https://www.instagram.com/Feblcsack"
+              icon="logo-instagram"
+            />
+            <TeamCard.Link
+              href="https://www.linkedin.com/in/ramadina-al-muzthazam-5028482a2"
+              icon="logo-linkedin"
+            />
+            <TeamCard.Link
+              href="https://github.com/feblcsack"
               icon="logo-github"
             />
           </TeamCard.Item>

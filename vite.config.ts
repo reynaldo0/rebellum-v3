@@ -5,13 +5,6 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server: {
-    // Mengatur proxy jika diperlukan untuk API
-    proxy: {
-      '/api': {
-        target: 'https://api.microlink.io',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
-      },
-    },
+  
   },
 })

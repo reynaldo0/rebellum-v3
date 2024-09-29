@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
 const Navbar = ({ teamText = "Team", teamLink = "/team",
-  //  direction = "left"
    }) => {
   const navigate = useNavigate();
 
