@@ -20,7 +20,7 @@ export const LinkPreview = ({
   height = 125,
   imageSrc,
 }: LinkPreviewProps) => {
-  const [isOpen, setOpen] = React.useState(false);
+  const [, setOpen] = React.useState(false); // Hilangkan 'open' karena tidak dipakai
   const [isMounted, setIsMounted] = React.useState(false);
 
   React.useEffect(() => {
@@ -55,7 +55,7 @@ export const LinkPreview = ({
       <HoverCardPrimitive.Root
         openDelay={50}
         closeDelay={100}
-        onOpenChange={setOpen}
+        onOpenChange={setOpen} // Hanya gunakan setOpen
       >
         <HoverCardPrimitive.Trigger
           onMouseMove={handleMouseMove}
