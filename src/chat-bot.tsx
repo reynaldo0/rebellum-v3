@@ -21,42 +21,81 @@ interface Message {
 export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { sender: "bot", content: "Halo! 👋 Apakah ada yang bisa kami bantu?" },
+    { sender: "bot", content: "Halo! 👋 Anda bisa bertanya dengan keyword seperti: kenakalan remaja, narkoba, atau cara menghindari narkoba." },
     {
       sender: "user",
       content:
         "Halo! Saya ingin menanyakan beberapa pertanyaan mengenai kenakalan remaja",
     },
-    { sender: "bot", content: ".............." },
+    { sender: "bot", content: "Silahkan kirim pertanyaan kamu sesuai keyword dan jangan lupa gulir " },
   ]);
   const [input, setInput] = useState("");
   const scrollAreaRef = useRef<HTMLDivElement>(null);
 
+  // Automatically scroll to the latest message when the message list changes
   useEffect(() => {
     if (scrollAreaRef.current) {
       scrollAreaRef.current.scrollTop = scrollAreaRef.current.scrollHeight;
     }
   }, [messages]);
 
+  const responses: { [key: string]: string[] } = {
+    "kenakalan remaja": [
+      "Kenakalan remaja sering kali disebabkan oleh tekanan teman sebaya.",
+      "Banyak faktor yang bisa memengaruhi, termasuk masalah keluarga.",
+    ],
+    "narkoba": [
+      "Narkoba adalah zat yang dapat mempengaruhi sistem saraf dan perilaku.",
+      "Ada berbagai jenis narkoba, seperti ganja, kokain, dan lainnya.",
+    ],
+    "cara menghindari narkoba": [
+      "Jalin hubungan baik dengan keluarga dan teman yang positif.",
+      "Ikuti kegiatan yang bermanfaat dan tingkatkan minat di bidang yang Anda sukai.",
+    ],
+  };
+
   const handleSend = () => {
     if (input.trim()) {
-      setMessages([...messages, { sender: "user", content: input }]);
+      setMessages((prev) => [...prev, { sender: "user", content: input }]);
+      const userMessage = input.toLowerCase();
       setInput("");
+
+      let botResponse = "Maaf, saya tidak mengerti pertanyaan Anda. Silakan coba lagi.";
+      
+      for (const key in responses) {
+        if (userMessage.includes(key)) {
+          const randomIndex = Math.floor(Math.random() * responses[key].length);
+          botResponse = responses[key][randomIndex];
+          break; // Keluar dari loop setelah menemukan jawaban yang cocok
+        }
+      }
+
       setTimeout(() => {
         setMessages((prev) => [
           ...prev,
           {
             sender: "bot",
-            content:
-              "Thank you for your question. I'm looking into that for you. Is there anything else you'd like to know?",
+            content: botResponse,
           },
         ]);
+
+        // Scroll ke area terbaru setelah mengupdate pesan
+        if (scrollAreaRef.current) {
+          scrollAreaRef.current.scrollTop = scrollAreaRef.current.scrollHeight;
+        }
       }, 1000);
     }
   };
 
   const handleOpen = () => {
     setIsOpen(true);
+
+    // Scroll to the bottom when the chat is first opened
+    setTimeout(() => {
+      if (scrollAreaRef.current) {
+        scrollAreaRef.current.scrollTop = scrollAreaRef.current.scrollHeight;
+      }
+    }, 300); // A little delay to make sure the chat content is fully loaded
   };
 
   return (
@@ -81,7 +120,7 @@ export default function ChatBot() {
         </svg>
       </Button>
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className={` scale-75 md:scale-100 sm:max-w-[400px] p-5 mt-10 overflow-hidden bg-white z-[99999] ${isOpen ? 'slide-in' : ''}`}>
+        <DialogContent className={`scale-75 md:scale-100 sm:max-w-[400px] p-5 mt-10 overflow-hidden bg-white z-[99999] ${isOpen ? 'slide-in' : ''}`}>
           <DialogHeader className="p-4 border-b">
             <div className="flex items-center">
               <Avatar className="h-10 w-10 mr-3">
@@ -97,7 +136,7 @@ export default function ChatBot() {
               </div>
             </div>
           </DialogHeader>
-          <ScrollArea className="h-[350px] p-4 bg-white" ref={scrollAreaRef}>
+          <ScrollArea className="h-[350px] p-4 bg-white overflow-y-auto" ref={scrollAreaRef}>
             {messages.map((message, index) => (
               <div
                 key={index}

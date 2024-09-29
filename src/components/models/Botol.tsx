@@ -14,7 +14,7 @@ type GLTFResult = GLTF & {
  const Botol = (props: JSX.IntrinsicElements["group"]) => {
   const { nodes, materials } = useGLTF("/3D/botol.glb") as GLTFResult;
   return (
-    <group {...props} dispose={null} > {/* Geser ke bawah */}
+    <group position={[0, -1.0, 0]} {...props} dispose={null} > 
       <mesh
         castShadow
         receiveShadow

@@ -1,3 +1,5 @@
+// src/components/Option.tsx
+
 import Botol from "../components/models/Botol";
 import Celurit from "../components/models/Celurit";
 import Ganja from "../components/models/Ganja";
@@ -15,12 +17,14 @@ interface Option {
   height: string;
   model: JSX.Element; // Allow JSX elements here
   caseImages: string[];
+  previewImage?: string; // Menambahkan properti ini
 }
 
 export const options: Option[] = [
+export const options: Option[] = [
   {
     title: "Tawuran",
-    description: "1-12 Bulan",
+    description: "36%",
     information:
       "Angka tawuran di Indonesia masih menjadi masalah serius, khususnya di kalangan pelajar. Pada tahun 2021, Badan Pusat Statistik (BPS) mencatat bahwa terdapat 188 desa/kelurahan di Indonesia yang menjadi lokasi tawuran pelajar. Provinsi Jawa Barat tercatat sebagai wilayah dengan angka tawuran pelajar tertinggi, yakni di 37 desa/kelurahan, diikuti oleh Sumatera Utara dan Maluku​",
     informationLink:
@@ -51,6 +55,7 @@ export const options: Option[] = [
       "/public/tawuran/1.jpeg",
       "/kasus.png",
     ],
+    previewImage: "/tawuran/1.jpeg", 
   },
   {
     title: "Narkoba",
@@ -62,15 +67,16 @@ export const options: Option[] = [
     backgroundColor: "#E33B3B",
     height: "300px",
     model: <Ganja scale={15} />,
+    model: <Ganja scale={15} />,
     caseImages: [
-      "/public/narkoba/1.png",
-      "/public/narkoba/2.jpeg",
-      "/public/narkoba/3.jpg",
-      "/public/narkoba/4.jpg",
-      "/public/narkoba/5.jpg",
+      "/narkoba/1.png",
+      "/narkoba/2.jpeg",
+      "/narkoba/3.jpg",
+      "/narkoba/4.jpg",
+      "/narkoba/5.jpg",
     ],
+    previewImage: "/narkoba/2.jpeg",
   },
-
   {
     title: "Merokok",
     description: "13-17 Tahun",
@@ -82,13 +88,15 @@ export const options: Option[] = [
     backgroundColor: "#0E9D75",
     height: "320px",
     model: <Model />,
+    model: <Model />,
     caseImages: [
-      "/public/merokok/1.jpg",
-      "/public/merokok/2.jpg",
-      "/public/merokok/3.jpg",
-      "/public/merokok/4.jpg",
-      "/public/merokok/5.jpg",
+      "/merokok/1.jpg",
+      "/merokok/2.jpg",
+      "/merokok/3.jpg",
+      "/merokok/4.jpg",
+      "/merokok/5.jpg",
     ],
+    previewImage: "/path/to/merokok-preview.jpg",
   },
   {
     title: "Seksual",
@@ -98,17 +106,17 @@ export const options: Option[] = [
     informationLink:
       "https://www.rri.co.id/nasional/594845/indonesia-dikatakan-darurat-seks-bebas-ini-penyebabnya", // Add this link
     image: "/path/to/dewasa-image.jpg",
-
     backgroundColor: "#F36932",
     height: "270px",
     model: <Sex />,
     caseImages: [
-      "/public/seksual/1.jpg",
-      "/public/seksual/2.jpg",
-      "/public/seksual/3.jpg",
-      "/public/seksual/4.jpeg",
-      "/public/seksual/5.jpg",
+      "/seksual/1.jpg",
+      "/seksual/2.jpg",
+      "/seksual/3.jpg",
+      "/seksual/4.jpeg",
+      "/seksual/5.jpg",
     ],
+    previewImage: "/path/to/seksual-preview.jpg",
   },
   {
     title: "Bullying",
@@ -122,12 +130,13 @@ export const options: Option[] = [
     height: "220px",
     model: <Sign />,
     caseImages: [
-      "/public/bullying/1.jpg",
-      "/public/bullying/2.jpg",
-      "/public/bullying/3.jpg",
-      "/public/bullying/4.jpg",
-      "/public/bullying/5.jpg",
-    ]
+      "/bullying/1.jpg",
+      "/bullying/2.jpg",
+      "/bullying/3.jpg",
+      "/bullying/4.jpg",
+      "/bullying/5.jpg",
+    ],
+    previewImage: "/path/to/bullying-preview.jpg",
   },
   {
     title: "Mabok",
@@ -141,11 +150,13 @@ export const options: Option[] = [
     height: "320px",
     model: <Botol scale={4} />,
     caseImages: [
-      "/public/mabok/1.jpg",
-      "/public/mabok/2.jpg",
-      "/public/mabok/3.jpg",
-      "/public/mabok/4.jpg",
-      "/public/mabok/5.jpeg",
+      "/mabok/1.jpg",
+      "/mabok/2.jpg",
+      "/mabok/3.jpg",
+      "/mabok/4.jpg",
+      "/mabok/5.jpeg",
     ],
+    previewImage: "/path/to/mabok-preview.jpg",
   },
+
 ];

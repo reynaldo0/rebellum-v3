@@ -94,7 +94,7 @@ const ModelCanvas = ({
             {title}
           </h2>
           <p className="text-white/80" style={{ color: descriptionColor }}>
-            Usia <span className="font-semibold">{description}</span>
+            Persentase <span className="font-semibold">{description}</span>
           </p>
         </div>
         <a

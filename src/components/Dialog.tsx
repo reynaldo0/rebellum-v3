@@ -3,14 +3,14 @@ import { useState, useEffect, useRef } from "react";
 const Dialog = () => {
   const dialogs = [
     {
-      text: "Halo Selamat datang di website Healtyself",
+      text: "Halo Selamat datang di website Rebellum",
       audio: "/audio/datang.mp3",
       mascot: "/team/rama.jpg",
       fallbackMascot: "/team/rama.jpg",
       duration: 10000,
     },
     {
-      text: "Silahkan pilih kategori usia yang kamu butuhkan",
+      text: "Silahkan pilih kategori kenakalan remaja",
       audio: "/audio/pilih.mp3",
       mascot: "/team/aldo.jpg",
       fallbackMascot: "/team/aldo.jpg",
