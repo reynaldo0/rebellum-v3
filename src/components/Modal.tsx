@@ -13,18 +13,28 @@ interface ModalProps {
 
 const Modal: React.FC<ModalProps> = ({ optionIndex, onClose }) => {
   const option = options[optionIndex];
+  const imageSrc = option.previewImage || "";
 
-  const imageSrc = option.previewImage || '';
-
-  // State untuk menampilkan atau menyembunyikan tooltip
+  // State for showing or hiding the tooltip
   const [showTooltip, setShowTooltip] = useState(false);
 
+  // Handle clicks outside the modal content
+  const handleClickOutside = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+
   return (
-    <div className="absolute inset-0 bg-black/60 z-[9999] flex items-end justify-center">
+    <div
+      className="absolute inset-0 bg-black/60 z-[9999] flex items-end justify-center"
+      onClick={handleClickOutside} // Close modal when clicking outside the modal content
+    >
       <div
         className="w-full max-w-6xl h-[450px] rounded-xl overflow-hidden relative mb-20"
         style={{ backgroundColor: option.backgroundColor }}
       >
+        {/* Close button */}
         <button
           onClick={onClose}
           className="absolute top-2 right-2 text-white hover:text-white/20"
@@ -45,14 +55,16 @@ const Modal: React.FC<ModalProps> = ({ optionIndex, onClose }) => {
             />
           </svg>
         </button>
+
+        {/* Modal content */}
         <div className="flex text-white">
-          {/* Canvas 3D */}
+          {/* 3D Canvas */}
           <div
             className="md:w-1/3 h-auto hidden md:block z-[9999999] relative"
             onMouseEnter={() => setShowTooltip(true)}
             onMouseLeave={() => setShowTooltip(false)}
           >
-            {/* Tooltip muncul saat hover */}
+            {/* Tooltip on hover */}
             {showTooltip && (
               <div className="absolute top-2 left-2 bg-black/70 text-white p-2 rounded-md transition-opacity duration-300">
                 Gerakkan saya untuk berinteraksi!
@@ -69,12 +81,11 @@ const Modal: React.FC<ModalProps> = ({ optionIndex, onClose }) => {
               <directionalLight position={[-5, 12, -40]} intensity={5} />
               <ambientLight intensity={0.5} />
               <Environment preset="sunset" />
-
               {option.model}
             </Canvas>
           </div>
 
-          {/* Konten */}
+          {/* Content */}
           <div className="p-4 md:w-2/3 md:px-10 pt-5">
             <h2 className="text-2xl md:text-3xl font-bold">{option.title}</h2>
 
@@ -83,7 +94,7 @@ const Modal: React.FC<ModalProps> = ({ optionIndex, onClose }) => {
                 url={String(option.informationLink)}
                 className="font-normal text-sm text-white"
                 imageSrc={imageSrc}
-              > 
+              >
                 {option.information}
               </LinkPreview>
             </p>
@@ -96,12 +107,15 @@ const Modal: React.FC<ModalProps> = ({ optionIndex, onClose }) => {
                   src={caseImage}
                   alt={`Kasus ${index + 1}`}
                   className="w-1/3 md:w-1/5 h-auto rounded case-image"
-                  whileHover={{ scale: 1.1, boxShadow: "0px 0px 10px rgba(255, 255, 255, 0.6)" }}
+                  whileHover={{
+                    scale: 1.1,
+                    boxShadow: "0px 0px 10px rgba(255, 255, 255, 0.6)",
+                  }}
                   transition={{ duration: 0.3 }}
                 />
               ))}
             </div>
-            <div className="flex absolute items-center justify-end bottom-2 md:bottom-5 right-5 space-x-2 hover:opacity-80">
+            <div className="flex absolute items-center justify-end bottom-2 md:bottom-7 right-7 space-x-2 hover:opacity-80">
               <Link
                 to="/home"
                 className="text-white font-semibold opacity-100 hover:opacity-50"
