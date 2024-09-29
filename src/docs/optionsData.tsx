@@ -77,7 +77,7 @@ export const options: Option[] = [
       "/merokok/4.jpg",
       "/merokok/5.jpg",
     ],
-    previewImage: "/path/to/merokok-preview.jpg",
+    previewImage: "/merokok/3.jpg",
   },
   {
     title: "Seksual",
@@ -95,7 +95,7 @@ export const options: Option[] = [
       "/seksual/4.jpeg",
       "/seksual/5.jpg",
     ],
-    previewImage: "/path/to/seksual-preview.jpg",
+    previewImage: "/seksual/3.jpg",
   },
   {
     title: "Bullying",
@@ -113,7 +113,7 @@ export const options: Option[] = [
       "/bullying/4.jpg",
       "/bullying/5.jpg",
     ],
-    previewImage: "/path/to/bullying-preview.jpg",
+    previewImage: "/bullying/4.jpg",
   },
   {
     title: "Mabok",
@@ -131,6 +131,6 @@ export const options: Option[] = [
       "/mabok/4.jpg",
       "/mabok/5.jpeg",
     ],
-    previewImage: "/path/to/mabok-preview.jpg",
+    previewImage: "/mabok/5.jpeg",
   },
 ];
