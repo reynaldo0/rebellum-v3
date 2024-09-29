@@ -89,7 +89,7 @@ const Team = () => {
                 alt="Nazla Rahma"
               />
               <h3 className="text-xl font-semibold mt-4 ease-in-out group-hover:text-lg">Nazla Rahma</h3>
-              <p className="text-gray-600 text-sm ease-in-out group-hover:text-white">UI/UX Desainer</p>
+              <p className="text-gray-600 text-sm ease-in-out group-hover:text-white">UI/UX Designer</p>
               <div className="flex justify-center space-x-4 mt-4">
                 <a href="https://github.com/zlaraa" className="text-yellow ease-in-out group-hover:text-white text-4xl p-5">
                   <Github size={32} />
