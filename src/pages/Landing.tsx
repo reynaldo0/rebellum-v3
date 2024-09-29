@@ -22,7 +22,7 @@ const Landing = (
     const handleTimeUpdate = () => {
       if (videoElement.currentTime >= 60) {
         console.log("Video reached 60 seconds");
-        videoElement.pause();
+        // videoElement.pause();
         videoElement.currentTime = 60;
       }
     };
