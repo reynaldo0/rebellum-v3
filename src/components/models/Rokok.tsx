@@ -36,9 +36,9 @@ export function Model(props: GroupProps) {
 
   return (
     <group {...props} dispose={null}>
-      <group rotation={[-Math.PI / 2, 0, 0]} scale={0.008}>
+      <group rotation={[-Math.PI / 2, 0, 0]}  position={[0,-0.5, 0]} scale={0.008}>
         <group rotation={[Math.PI / 2, 0, 0]}>
-          <group position={[0,-2.9, 0]} rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+          <group position={[0,-1.9, 0]} rotation={[-Math.PI / 2, 0, 0]} scale={120}>
             <mesh
               castShadow
               receiveShadow
@@ -52,7 +52,7 @@ export function Model(props: GroupProps) {
               material={materials['Material.002']}
             />
           </group>
-          <group position={[0, -2.9, -43.019]} rotation={[-3.107, 0, 0]} scale={100}>
+          <group position={[0, -2.9, -43.019]} rotation={[-3.107, 0, 0]} scale={120}>
             <mesh
               castShadow
               receiveShadow
@@ -73,7 +73,7 @@ export function Model(props: GroupProps) {
             material={materials['Material.001']}
             position={[-75.509, -2.9, 18.563]}
             rotation={[-Math.PI / 2, 0, 0]}
-            scale={100}
+            scale={120}
           />
           <mesh
             castShadow
@@ -82,7 +82,7 @@ export function Model(props: GroupProps) {
             material={materials['Material.001']}
             position={[-78.1, -2.9, -3.565]}
             rotation={[-Math.PI / 2, 0, 0]}
-            scale={100}
+            scale={120}
           />
           <mesh
             castShadow
@@ -91,7 +91,7 @@ export function Model(props: GroupProps) {
             material={materials['Material.001']}
             position={[-51.062, -2.9, 7.515]}
             rotation={[-Math.PI / 2, 0, 0]}
-            scale={100}
+            scale={120}
           />
           <mesh
             castShadow
@@ -100,7 +100,7 @@ export function Model(props: GroupProps) {
             material={materials['Material.001']}
             position={[22.159, 207.533, -2.439]}
             rotation={[-Math.PI / 2, 0, 0]}
-            scale={100}
+            scale={120}
           />
           <mesh
             castShadow
@@ -109,7 +109,7 @@ export function Model(props: GroupProps) {
             material={materials['Material.001']}
             position={[68.346, -2.9, -22.223]}
             rotation={[-Math.PI / 2, 0, 0]}
-            scale={100}
+            scale={120}
           />
           <mesh
             castShadow
@@ -118,7 +118,7 @@ export function Model(props: GroupProps) {
             material={materials['Material.001']}
             position={[55.241, -2.9, 8.403]}
             rotation={[-Math.PI / 2, 0, 0]}
-            scale={100}
+            scale={120}
           />
           <mesh
             castShadow
@@ -127,7 +127,7 @@ export function Model(props: GroupProps) {
             material={materials['Material.001']}
             position={[-16.989, -2.9, -23.811]}
             rotation={[-Math.PI / 2, 0, 0]}
-            scale={100}
+            scale={120}
           />
           <mesh
             castShadow
@@ -136,7 +136,7 @@ export function Model(props: GroupProps) {
             material={materials['Material.001']}
             position={[-21.25, -2.9, 21.96]}
             rotation={[-Math.PI / 2, 0, 0]}
-            scale={100}
+            scale={120}
           />
           <mesh
             castShadow
@@ -145,7 +145,7 @@ export function Model(props: GroupProps) {
             material={materials['Material.001']}
             position={[-51.591, -2.9, -28.933]}
             rotation={[-Math.PI / 2, 0, 0]}
-            scale={100}
+            scale={120}
           />
           <mesh
             castShadow
@@ -154,7 +154,7 @@ export function Model(props: GroupProps) {
             material={materials['Material.001']}
             position={[80.866, -2.9, 13.916]}
             rotation={[-Math.PI / 2, 0, 0]}
-            scale={100}
+            scale={120}
           />
           <mesh
             castShadow
@@ -163,7 +163,7 @@ export function Model(props: GroupProps) {
             material={materials['Material.001']}
             position={[83.901, -2.9, -11.951]}
             rotation={[-Math.PI / 2, 0, 0]}
-            scale={100}
+            scale={120}
           />
           <mesh
             castShadow
@@ -172,7 +172,7 @@ export function Model(props: GroupProps) {
             material={materials['Material.001']}
             position={[-201.053, -2.9, 21.96]}
             rotation={[-Math.PI / 2, 0, 0]}
-            scale={100}
+            scale={120}
           />
         </group>
       </group>

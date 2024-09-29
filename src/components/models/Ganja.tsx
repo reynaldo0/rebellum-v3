@@ -20,7 +20,7 @@ const Ganja = (props: JSX.IntrinsicElements["group"]) => {
     <group {...props} dispose={null}>
       <group scale={0.01}>
         {/* Mengubah posisi y menjadi sedikit lebih rendah, misalnya 8.0 */}
-        <group position={[0, -5.0, 0]} rotation={[Math.PI / 2, 0, Math.PI]} scale={100}>
+        <group position={[0, -7.0, 0]} rotation={[Math.PI / 2, 0, Math.PI]} scale={140}>
           <mesh
             castShadow
             receiveShadow

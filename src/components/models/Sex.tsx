@@ -18,7 +18,7 @@ export function Sex(props: GroupProps) {
   const { nodes, materials } = useGLTF("/3D/segs.glb") as unknown as GLTFResult;
 
   return (
-    <group position={[0, -2.0, 0]} scale={1.3} {...props} dispose={null}>
+    <group position={[0, -1.5, 0]} scale={1.5} {...props} dispose={null}>
       <mesh
         castShadow
         receiveShadow
