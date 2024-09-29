@@ -22,7 +22,7 @@ const Landing = (
     const handleTimeUpdate = () => {
       if (videoElement.currentTime >= 60) {
         console.log("Video reached 60 seconds");
-        videoElement.pause();
+        // videoElement.pause();
         videoElement.currentTime = 60;
       }
     };
@@ -59,6 +59,7 @@ const Landing = (
             ref={videoRef}
             autoPlay
             muted
+            loop
             className="absolute -z-20 inset-0 w-full h-full object-cover">
             <source src="/bg/hero.mp4" type="video/mp4" />
             Your browser does not support the video tag.
