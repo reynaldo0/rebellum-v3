@@ -8,31 +8,31 @@ export const dataButtonList: DataButton[] = [
     {
         label: 'Tawuran',
         description: 'Berada di angka 16%',
-        image: '/icon/celurit.png'
+        image: '/icon/data/tawuran.png'
     },
     {
         label: 'Narkoba',
         description: 'Berada di angka 16%',
-        image: '/icon/narkoba.png'
+        image: '/icon/data/narkoba.png'
     },
     {
         label: 'Merokok',
         description: 'Berada di angka 18.8%',
-        image: '/icon/rokok.png'
+        image: '/icon/data/rokok.png'
     },
     {
         label: 'Seksual',
         description: 'Berada di angka 21,4%',
-        image: '/icon/seksual.png'
+        image: '/icon/data/seksual.png'
     },
     {
         label: 'Perundungan',
         description: 'Berada di angka 13.5%',
-        image: '/icon/bully.png'
+        image: '/icon/data/bully.png'
     },
     {
         label: 'Mabuk',
         description: 'Berada di angka 1.4%',
-        image: '/icon/miras.png'
+        image: '/icon/data/mabok.png'
     },
 ]

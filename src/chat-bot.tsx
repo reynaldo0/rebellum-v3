@@ -124,7 +124,7 @@ export default function ChatBot() {
           <DialogHeader className="p-4 border-b">
             <div className="flex items-center">
               <Avatar className="h-10 w-10 mr-3">
-                <AvatarImage src="/avatar.png" />
+                <AvatarImage src="/icon/avatar.png" />
                 <AvatarFallback>RB</AvatarFallback>
               </Avatar>
               <div>
