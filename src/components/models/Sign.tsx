@@ -20,9 +20,9 @@ export function Sign(props: JSX.IntrinsicElements["group"]) {
         receiveShadow
         geometry={nodes.Curve018.geometry}
         material={materials.PaletteMaterial001}
-        position={[0.049, 1.284, -0.457]}
+        position={[0.194, -1.028, -0.102]}
         rotation={[Math.PI / 2, 0, 0]}
-        scale={10.619}
+        scale={13.619}
       />
     </group>
   );

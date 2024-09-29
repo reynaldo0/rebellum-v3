@@ -95,6 +95,15 @@ button.learn-more .circle .icon.arrow::before {
   transition: height 0.3s ease;
 }
 
+.modal-background {
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.case-image {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 
 button.learn-more .button-text {
   @apply text-primary-200;

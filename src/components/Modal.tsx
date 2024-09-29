@@ -83,19 +83,19 @@ const Modal: React.FC<ModalProps> = ({ optionIndex, onClose }) => {
                 url={String(option.informationLink)}
                 className="font-normal text-sm text-white"
                 imageSrc={imageSrc}
-              >
+              > 
                 {option.information}
               </LinkPreview>
             </p>
 
-            <h3 className="text-2xl font-semibold mt-6">Kasus</h3>
+            <h3 className="text-2xl font-semibold mt-6 hidden md:block">Kasus</h3>
             <div className="flex flex-rows gap-2 mt-4">
               {option.caseImages.map((caseImage, index) => (
                 <motion.img
                   key={index}
                   src={caseImage}
                   alt={`Kasus ${index + 1}`}
-                  className="w-1/5 h-auto rounded case-image"
+                  className="w-1/3 md:w-1/5 h-auto rounded case-image"
                   whileHover={{ scale: 1.1, boxShadow: "0px 0px 10px rgba(255, 255, 255, 0.6)" }}
                   transition={{ duration: 0.3 }}
                 />

@@ -1,9 +1,0 @@
-.modal-background {
-    backdrop-filter: blur(8px);
-    background: rgba(0, 0, 0, 0.6);
-  }
-  
-  .case-image {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  

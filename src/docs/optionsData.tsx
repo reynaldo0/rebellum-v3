@@ -3,6 +3,7 @@ import Celurit from "../components/models/Celurit";
 import Ganja from "../components/models/Ganja";
 import { Model } from "../components/models/Rokok";
 import { Sex } from "../components/models/Sex";
+import { Sign } from "../components/models/Sign";
 
 interface Option {
   title: string;
@@ -104,7 +105,7 @@ export const options: Option[] = [
     image: "/path/to/lansia-image.jpg",
     backgroundColor: "#16AE79",
     height: "220px",
-    model: <Celurit isHovered />,
+    model: <Sign/>,
     caseImages: [
       "/bullying/1.jpg",
       "/bullying/2.jpg",
