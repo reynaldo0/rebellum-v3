@@ -59,6 +59,7 @@ const Landing = (
             ref={videoRef}
             autoPlay
             muted
+            loop
             className="absolute -z-20 inset-0 w-full h-full object-cover">
             <source src="/bg/hero.mp4" type="video/mp4" />
             Your browser does not support the video tag.
@@ -69,8 +70,8 @@ const Landing = (
             Stop Kenakalan, {" "}
               <span className="text-yellow">Mulai Perubahan!</span>
             </h1>
-            <p className="mb-8 text-sm font-normal text-gray-300 lg:text-base sm:px-16 lg:px-48 pt-2">
-            "Kenakalan remaja sering kali muncul akibat tekanan sosial dan pencarian identitas. Penting untuk memahami faktor-faktor yang mempengaruhi perilaku mereka. Kami menyediakan panduan dan strategi bagi orang tua, pendidik, dan remaja untuk mengatasi godaan, membangun kepercayaan diri, dan menciptakan lingkungan yang mendukung pertumbuhan positif. Dengan pendekatan yang tepat, kenakalan bisa menjadi kesempatan untuk belajar dan berkembang."
+            <p className="mb-8 text-sm font-normal text-gray-300 lg:text-base sm:px-16 lg:px-48 md:scale-110 pt-2">
+            Kenakalan remaja sering kali muncul akibat tekanan sosial dan pencarian identitas. Penting untuk memahami faktor-faktor yang mempengaruhi perilaku mereka. Kami menyediakan panduan dan strategi bagi orang tua, pendidik, dan remaja untuk mengatasi godaan, membangun kepercayaan diri, dan menciptakan lingkungan yang mendukung pertumbuhan positif. Dengan pendekatan yang tepat, kenakalan bisa menjadi kesempatan untuk belajar dan berkembang.
             </p>
             <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
               <button

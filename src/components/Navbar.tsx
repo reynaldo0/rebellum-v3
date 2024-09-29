@@ -20,7 +20,7 @@ const Navbar = () => {
       <nav className="fixed left-0 top-0 z-[99999] w-full border-gray-200 bg-white/70 backdrop-blur-md">
         <div className="mx-auto flex max-w-screen-2xl flex-wrap items-center justify-between p-4">
           <a
-            href="#"
+            href="/"
             className="flex items-center space-x-3 rtl:space-x-reverse">
             <img
               src="/icon/logo-nav.png"
