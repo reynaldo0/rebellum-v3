@@ -5,15 +5,15 @@ const Dialog = () => {
     {
       text: "Halo Selamat datang di website Rebellum",
       audio: "/audio/datang.mp3",
-      mascot: "/team/rama.jpg",
-      fallbackMascot: "/team/rama.jpg",
+      mascot: "/icon/maskot.webp",
+      fallbackMascot: "/icon/maskot.webp",
       duration: 10000,
     },
     {
-      text: "Silahkan pilih kategori kenakalan remaja",
-      audio: "/audio/pilih.mp3",
-      mascot: "/team/aldo.jpg",
-      fallbackMascot: "/team/aldo.jpg",
+      text: "Silahkan pilih kategori kenakalan remaja yang telah kami sediakan",
+      audio:  "/audio/akhir.mp3",
+      mascot: "/icon/maskot.webp",
+      fallbackMascot: "/icon/maskot.webp",
     },
   ];
 

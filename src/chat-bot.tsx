@@ -120,7 +120,7 @@ export default function ChatBot() {
         </svg>
       </Button>
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className={`scale-75 md:scale-100 sm:max-w-[400px] p-5 mt-10 overflow-hidden bg-white z-[99999] ${isOpen ? 'slide-in' : ''}`}>
+        <DialogContent className={`scale-75 md:scale-90 sm:max-w-[400px] p-5 mt-0 overflow-hidden bg-white z-[99999] ${isOpen ? 'slide-in' : ''}`}>
           <DialogHeader className="p-4 border-b">
             <div className="flex items-center">
               <Avatar className="h-10 w-10 mr-3">
