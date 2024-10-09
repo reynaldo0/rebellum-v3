@@ -20,7 +20,7 @@ export const LinkPreview = ({
   height = 125,
   imageSrc,
 }: LinkPreviewProps) => {
-  const [, setOpen] = React.useState(false); // Hilangkan 'open' karena tidak dipakai
+  const [,setOpen] = React.useState(false); // Hilangkan 'open' karena tidak dipakai
   const [isMounted, setIsMounted] = React.useState(false);
 
   React.useEffect(() => {
