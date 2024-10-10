@@ -1,8 +1,9 @@
 import { useGLTF } from "@react-three/drei";
-import { GroupProps } from "@react-three/fiber";
-import { Mesh, Material, BufferGeometry } from "three"; // Pastikan untuk mengimpor tipe dari 'three'
+import { GroupProps, useFrame } from "@react-three/fiber";
+import { Mesh, Material, BufferGeometry, Group } from "three"; // Import types from 'three'
+import { useRef } from "react"; // Import useRef
 
-// Definisikan tipe untuk hasil GLTF
+// Define type for GLTF result
 type GLTFResult = {
   nodes: {
     Curve: Mesh<BufferGeometry>;
@@ -14,11 +15,21 @@ type GLTFResult = {
 };
 
 export function Sex(props: GroupProps) {
-  // Casting hasil dari useGLTF ke tipe yang sesuai
+  // Casting result from useGLTF to the appropriate type
   const { nodes, materials } = useGLTF("/3D/segs.glb") as unknown as GLTFResult;
 
+  // Create a ref for the group to apply rotation
+  const groupRef = useRef<Group>(null!); // Type ref correctly to Group
+
+  // Use useFrame to apply rotation on every frame
+  useFrame(() => {
+    if (groupRef.current) {
+      groupRef.current.rotation.y += 0.01; // Rotate around the Y-axis
+    }
+  });
+
   return (
-    <group position={[0, -1.5, 0]} scale={1.5} {...props} dispose={null}>
+    <group position={[0, -1.5, 0]} scale={1.5} ref={groupRef} {...props} dispose={null}>
       <mesh
         castShadow
         receiveShadow
@@ -40,5 +51,5 @@ export function Sex(props: GroupProps) {
   );
 }
 
-// Preload GLTF model untuk mempercepat loading
+// Preload GLTF model for faster loading
 useGLTF.preload("/3D/segs.glb");
