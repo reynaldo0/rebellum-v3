@@ -5,8 +5,7 @@ const Dialog = () => {
     {
       text: "Halo Selamat datang di website Rebellum",
       audio: "/audio/datang.mp3",
-      mascot: "/audio/datang.mp4", // Video mascot
-      duration: 10000,
+      mascot: "/audio/datang.mp4",
     },
     {
       text: "Jelajahi 6 kategori kenakalan remaja beserta dengan solusinya",

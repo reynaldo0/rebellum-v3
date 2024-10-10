@@ -13,7 +13,7 @@ const HomeLayout = () => {
     setTimeout(() => {
       setOpen(false);
       setTransition('fade-in');
-    }, 500);
+    });
   };
 
 
