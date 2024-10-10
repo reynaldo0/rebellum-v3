@@ -5,22 +5,19 @@ const Dialog = () => {
     {
       text: "Halo Selamat datang di website Rebellum",
       audio: "/audio/datang.mp3",
-      mascot: "/icon/maskot.webp",
-      fallbackMascot: "/icon/maskot.webp",
+      mascot: "/audio/datang.mp4", // Video mascot
       duration: 10000,
     },
     {
-      text: "Silahkan pilih kategori kenakalan remaja yang telah kami sediakan",
-      audio:  "/audio/akhir.mp3",
-      mascot: "/icon/maskot.webp",
-      fallbackMascot: "/icon/maskot.webp",
+      text: "Jelajahi 6 kategori kenakalan remaja beserta dengan solusinya",
+      audio: "/audio/silahkan.mp3",
+      mascot: "/audio/silahkan.mp4", // Image mascot
     },
   ];
 
   const [currentDialogIndex, setCurrentDialogIndex] = useState(0);
   const [isDialogVisible, setIsDialogVisible] = useState(true);
-  const [isFallbackImage, setIsFallbackImage] = useState(false);
-  const mediaRef = useRef<HTMLImageElement>(null);
+  const mediaRef = useRef<HTMLMediaElement | HTMLImageElement>(null);
 
   useEffect(() => {
     if (isDialogVisible) {
@@ -33,18 +30,9 @@ const Dialog = () => {
     }
   }, [currentDialogIndex, isDialogVisible]);
 
-  useEffect(() => {
-    if (mediaRef.current) {
-      mediaRef.current.addEventListener("load", handleImageLoad, {
-        once: true,
-      });
-    }
-  }, [currentDialogIndex]);
-
   const handleNext = () => {
     if (currentDialogIndex < dialogs.length - 1) {
       setCurrentDialogIndex(currentDialogIndex + 1);
-      setIsFallbackImage(false);
     } else {
       setIsDialogVisible(false);
     }
@@ -54,26 +42,37 @@ const Dialog = () => {
     setIsDialogVisible(false);
   };
 
-  const handleImageLoad = () => {
-    setTimeout(() => {
-      setIsFallbackImage(true);
-    }, 2800);
+  const handleVideoEnd = () => {
+    // Optional: Handle any logic when video ends, e.g., automatically move to next dialog
   };
 
   const currentMedia = dialogs[currentDialogIndex].mascot;
-  const fallbackMedia = dialogs[currentDialogIndex].fallbackMascot;
+  const isVideo = currentMedia.endsWith(".mp4"); // Check if it's a video file
 
   return (
     isDialogVisible && (
       <div className="absolute inset-0 bg-black/60 z-[99999] backdrop-blur-md w-full flex items-center">
         <div className="container">
           <div className="flex flex-col md:flex-row items-center justify-center gap-10 w-full">
-            <img
-              src={isFallbackImage ? fallbackMedia : currentMedia}
-              alt="maskot"
-              className="w-[150px] md:w-[300px] h-auto"
-              ref={mediaRef}
-            />
+            {isVideo ? (
+              <video
+                src={currentMedia}
+                className="w-[150px] md:w-[300px] h-auto"
+                autoPlay
+                muted
+                onEnded={handleVideoEnd} // Trigger when video ends
+                ref={mediaRef as React.RefObject<HTMLVideoElement>}
+              >
+                Your browser does not support the video tag.
+              </video>
+            ) : (
+              <img
+                src={currentMedia}
+                alt="mascot"
+                className="w-[150px] md:w-[300px] h-auto"
+                ref={mediaRef as React.RefObject<HTMLImageElement>}
+              />
+            )}
 
             <div className="flex flex-col w-full gap-4">
               <div className="bg-white w-full md:w-[90%] max-w-[800px] min-h-[125px] rounded-md p-4 text-base font-semibold">
@@ -82,12 +81,14 @@ const Dialog = () => {
               <div className="flex justify-end md:justify-start gap-4">
                 <button
                   onClick={handleSkip}
-                  className="text-white bg-yellow/50 hover:bg-yellow/90 font-medium rounded-lg text-sm px-8 py-2 text-center">
+                  className="text-white bg-yellow/50 hover:bg-yellow/90 font-medium rounded-lg text-sm px-8 py-2 text-center"
+                >
                   Lewati
                 </button>
                 <button
                   onClick={handleNext}
-                  className="text-white bg-yellow hover:bg-yellow/90 font-medium rounded-lg text-sm px-8 py-2 text-center">
+                  className="text-white bg-yellow hover:bg-yellow/90 font-medium rounded-lg text-sm px-8 py-2 text-center"
+                >
                   Selanjutnya
                 </button>
               </div>
