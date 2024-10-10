@@ -1,8 +1,8 @@
-
 import { useGLTF } from '@react-three/drei';
-import { GroupProps } from '@react-three/fiber';
+import { GroupProps, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { GLTF } from 'three-stdlib';
+import { useRef} from 'react';
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -34,11 +34,20 @@ type GLTFResult = GLTF & {
 export function Model(props: GroupProps) {
   const { nodes, materials } = useGLTF('/3D/rokok.glb') as unknown as GLTFResult;
 
+  const meshRef = useRef<THREE.Group>(null); // Create a reference for the group
+
+  // Animation logic
+  useFrame(() => {
+    if (meshRef.current) {
+      meshRef.current.rotation.y += 0.01; // Rotate the group continuously
+    }
+  });
+
   return (
-    <group {...props} dispose={null}>
-      <group rotation={[-Math.PI / 2, 0, 0]}  position={[0,-0.5, 0]} scale={0.008}>
+    <group {...props} dispose={null} ref={meshRef}>
+      <group rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]} scale={0.008}>
         <group rotation={[Math.PI / 2, 0, 0]}>
-          <group position={[0,-1.9, 0]} rotation={[-Math.PI / 2, 0, 0]} scale={120}>
+          <group position={[0, -1.9, 0]} rotation={[-Math.PI / 2, 0, 0]} scale={120}>
             <mesh
               castShadow
               receiveShadow
