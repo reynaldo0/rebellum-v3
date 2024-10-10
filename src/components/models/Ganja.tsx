@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef} from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import { GLTF } from 'three-stdlib';
@@ -19,21 +19,10 @@ const Ganja = (props: JSX.IntrinsicElements["group"]) => {
   const { nodes, materials } = useGLTF('/3D/ganja.glb') as GLTFResult;
   const meshRef = useRef<THREE.Group>(null); // Menggunakan ref untuk grup
 
-  // State untuk melacak rotasi
-  const [rotatedOnce, setRotatedOnce] = useState(false);
-
   // Animasi rotasi
   useFrame(() => {
     if (meshRef.current) {
-      // Jika belum berotasi sekali, lakukan rotasi
-      if (!rotatedOnce) {
-        meshRef.current.rotation.y += 0.01; // Lakukan rotasi
-        // Jika rotasi mencapai 2π (360 derajat), reset kembali
-        if (meshRef.current.rotation.y >= Math.PI * 2) {
-          meshRef.current.rotation.y = 0; // Kembalikan rotasi ke 0
-          setRotatedOnce(true); // Tandai bahwa rotasi sudah dilakukan sekali
-        }
-      }
+      meshRef.current.rotation.y += 0.01; // Rotate the group continuously
     }
   });
 

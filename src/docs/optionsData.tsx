@@ -1,5 +1,5 @@
 import Botol from "../components/models/Botol";
-import Celurit from "../components/models/Celurit";
+import Tawuran from "../components/models/Tawuran";
 import Ganja from "../components/models/Ganja";
 import { Model } from "../components/models/Rokok";
 import { Sex } from "../components/models/Sex";
@@ -30,8 +30,8 @@ export const options: Option[] = [
     height: "225px",
     model: (
       <>
-        <Celurit scale={1.2} position={[1, 0, 0]} rotation={[0, Math.PI, Math.PI / 6]} isHovered />
-        <Celurit scale={1.2} position={[-1, 0, 0]} rotation={[0, 0, Math.PI / 6]} isHovered />
+        <Tawuran scale={1.2} position={[1, 0, 0]} rotation={[0, Math.PI, Math.PI / 6]} isHovered />
+        <Tawuran scale={1.2} position={[-1, 0, 0]} rotation={[0, 0, Math.PI / 6]} isHovered />
       </>
     ),
     caseImages: [

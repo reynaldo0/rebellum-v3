@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useGLTF } from "@react-three/drei";
 import { GroupProps, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
@@ -13,24 +13,26 @@ type GLTFResult = GLTF & {
   };
 };
 
-type CeluritProps = GroupProps & {
+type TawuranProps = GroupProps & {
   isHovered: boolean;
-}
+};
 
-const Celurit: React.FC<CeluritProps> = (props: CeluritProps) => {
-  const { nodes, materials } = useGLTF(
-    "/3D/celurit.glb"
-  ) as unknown as GLTFResult;
-  const meshRef = useRef<THREE.Mesh>();
-  const { isHovered } = props;
+const Tawuran: React.FC<TawuranProps> = (props: TawuranProps) => {
+  const { nodes, materials } = useGLTF("/3D/celurit.glb") as unknown as GLTFResult;
+  const meshRef = useRef<THREE.Mesh>(null);
+
+  // State untuk melacak rotasi
+  const [rotatedOnce, setRotatedOnce] = useState(false);
 
   useFrame(() => {
     if (meshRef.current) {
-      const targetScale = isHovered ? 4.1 : 4;
-      meshRef.current.scale.x += (targetScale - meshRef.current.scale.x) * 0.1;
-      meshRef.current.scale.y += (targetScale - meshRef.current.scale.y) * 0.1;
-      meshRef.current.scale.z += (targetScale - meshRef.current.scale.z) * 0.1;
-      meshRef.current.rotation.y += isHovered ? 0.05 : 0.01;
+      if (!rotatedOnce) {
+        meshRef.current.rotation.y += 0.01; 
+        if (meshRef.current.rotation.y >= Math.PI * 2) {
+          meshRef.current.rotation.y = 0; 
+          setRotatedOnce(true);
+        }
+      }
     }
   });
 
@@ -38,10 +40,11 @@ const Celurit: React.FC<CeluritProps> = (props: CeluritProps) => {
     <group {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <mesh
+          ref={meshRef}
           position={[0, 0, 0]}
           geometry={nodes.Object_4.geometry}
           material={materials.Material}
-          scale={0.053}
+          scale={0.053} // Skala tetap
         />
       </group>
     </group>
@@ -50,4 +53,4 @@ const Celurit: React.FC<CeluritProps> = (props: CeluritProps) => {
 
 useGLTF.preload("/3D/celurit.glb");
 
-export default Celurit;
+export default Tawuran;
